@@ -1,0 +1,24 @@
+<div class="word-component">
+    <div class="header-wrap">
+        <div class="breadcrumb">
+            <button mat-icon-button>
+                <mat-icon>arrow_left</mat-icon>
+                {{word}}
+            </button>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="title">
+            <div class="title-main">
+                <h2 class="chinese">{{decomposition?.translation}}</h2>
+            </div>
+    
+            <div class="title-pinyin">
+                ({{pinyin}})
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="decomposition" class="character-decompositions">
+        <app-character *ngFor="let character of decomposition.characters" [decomposition]="character"></app-character>
+    </div>
+</div>

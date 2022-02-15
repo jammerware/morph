@@ -1,0 +1,18 @@
+<div class="search-box-component">
+    <form id="search" #search="ngForm" (ngSubmit)="formSubmit" (keydown.enter)="onEnter($event)">
+        <div class="form-row">
+            <mat-form-field class="full-width" appearance="fill" [hideRequiredMarker]="true">
+                <mat-label>{{(placeholder$ | async) || 'Try "movie night"'}}</mat-label>
+                <input #queryInput name="query" [(ngModel)]="query" type="search" matInput required minlength="3" autocomplete="off">
+        
+                <button *ngIf="query" matSuffix mat-icon-button aria-label="Clear" (click)="query=''">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <button type="button" mat-flat-button color="primary" (click)="raise()" [disabled]="search.invalid">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+    </form>
+</div>
