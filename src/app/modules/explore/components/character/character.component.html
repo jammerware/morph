@@ -1,0 +1,17 @@
+<div class="character-component">
+    <div class="character-big chinese">
+        {{decomposition.character}}
+    </div>
+    <div class="character-pinyin">{{decomposition.pinyin}}</div>
+    <div class="definitions">
+        <ul>
+            <li *ngFor="let definition of decomposition.definitions">{{definition}}</li>
+        </ul>
+    </div>
+    <p>
+        {{decomposition.strokeCount}} strokes
+    </p>
+    <p>
+        {{decomposition.freqRank}}th most common character
+    </p>
+</div>

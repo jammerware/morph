@@ -1,4 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+/* FONTS */
+@font-face {
+    font-family: 'Noto Sans SC';
+    src: url('assets/fonts/NotoSansSC-Regular.otf'), url('assets/fonts/NotoSansSC-Black.otf'), url('assets/fonts//NotoSansSC-Bold.otf'), url('assets/fonts/NotoSansSC-Light.otf'), url('assets/fonts/NotoSansSC-Medium.otf'), url('assets/fonts/NotoSansSC-Thin.otf');
+}
 
+.chinese {
+    font-family: 'Noto Sans SC', sans-serif !important;
+}
+
+/* GLOBAL STYLES */
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+ul, ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        display: inline;
+    }
+}
+
+body { 
+    background: url('assets/pexels-bri-schneiter-346529.jpg') center content-box content-box fixed;
+    margin: 0; 
+    font-family: 
+    Roboto, "Helvetica Neue", sans-serif; 
+}
+
+.mat-divider {
+    border-top-color: #888;
+}
