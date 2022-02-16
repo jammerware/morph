@@ -6,6 +6,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressBar } from '@angular/material/progress-bar';
 
 const MAT_MODULES = [
   MatButtonModule,
@@ -13,6 +14,7 @@ const MAT_MODULES = [
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
+  MatProgressBar,
 ]
 
 @NgModule({
