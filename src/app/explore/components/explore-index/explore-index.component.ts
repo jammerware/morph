@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-explore-index',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExploreIndexComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  onSearch(event: { query: string }) {
+    this.router.navigateByUrl(`/word/${event.query}`);
+  }
 }

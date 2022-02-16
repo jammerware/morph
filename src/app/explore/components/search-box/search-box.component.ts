@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class SearchBoxComponent implements OnInit {
   @Input() query = '';
   @Output() search = new EventEmitter<{ query: string }>();
+  DEFAULT_TERM = "raccoon";
 
   // pretty suggestions
   private popularTerms: string[] = [];
@@ -22,11 +23,10 @@ export class SearchBoxComponent implements OnInit {
     
     this.placeholder$ = interval(5000).pipe(map(_ => {
       if (this.popularTerms && this.popularTerms.length) {
-        const popTerm = this.popularTerms[Math.floor(Math.random() * this.popularTerms.length)];
-        return `Try "${popTerm}"`;
+        return this.popularTerms[Math.floor(Math.random() * this.popularTerms.length)];
       }
 
-      return 'Try "movie night"';
+      return this.DEFAULT_TERM;
     }));
   }
 
