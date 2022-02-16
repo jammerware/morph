@@ -1,9 +1,21 @@
 .app-component {
     display: flex;
+    flex-direction: column;
     height: 99%;
     margin: 0 auto;
     max-width: 1000px;
-    justify-items: center;
+
+    .flex-spacer {
+        flex-grow: 1;
+    }
+}
+
+.app-title {
+    color: #ffffff;
+    font-family: 'Passion One', cursive;
+    font-size: 4rem;
+    height: 3rem;
+    text-transform: lowercase;
 }
 
 .content-wrap {
