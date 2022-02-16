@@ -3,5 +3,6 @@ export interface ICharacterDecomposition {
     freqRank: number;
     pinyin: string;
     radical: string;
-    definition: string;
+    definitions: string[];
+    strokeCount: number;
 }

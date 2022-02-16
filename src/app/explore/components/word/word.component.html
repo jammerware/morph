@@ -1,17 +1,14 @@
 <div class="word-component">
     <div class="header-wrap">
         <div class="breadcrumb">
-            <button mat-button>
+            <a mat-button [routerLink]="['/']">
                 <mat-icon>arrow_back</mat-icon>
                 {{word}}
-            </button>
+            </a>
         </div>
         <mat-divider></mat-divider>
         <div class="title">
-            <div class="title-main">
-                <h2 class="chinese">{{decomposition?.translation}}</h2>
-            </div>
-    
+            <h2 class="chinese">{{decomposition?.translation}}</h2>
             <div class="title-pinyin">
                 ({{pinyin}})
             </div>

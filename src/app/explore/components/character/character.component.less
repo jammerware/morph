@@ -1,9 +1,30 @@
 .character-component {
-    width: 100%;
-    display: flex;
+    display: block;
+    text-align: center;
 }
 
 .character-big {
+    display: block;
     font-size: 6rem;
-    border-bottom: solid 1px black;
+    line-height: 6.5rem;
+}
+
+.character-pinyin {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 2.25rem;
+}
+
+.definitions {
+    text-transform: uppercase;
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            font-weight: bolder;
+            margin-right: 1rem;
+        }
+    }
 }

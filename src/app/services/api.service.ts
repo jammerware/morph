@@ -27,25 +27,27 @@ export class ApiService {
       throw new Error(`getDecomposition requires a non-null/non-empty query argument. Passed: "${query}"`)
     }
     
-    // return this.http.post(`${this.API_ROOT}/decompose`, { word: query }).pipe(map(response => response as IDecomposition));
-    return of({
-      translation: "火山",
-      characters: [
-        {
-          character: "火",
-          freqRank: 433,
-          pinyin: "huǒ",
-          radical: "火",
-          definition: "fire, flame; burn; anger, rage"
-        },
-        {
-          character: "山",
-          freqRank: 259,
-          pinyin: "shān",
-          radical: "山",
-          definition: "mountain, hill, peak"
-        }
-      ]
-    })
+    return this.http.post(`${this.API_ROOT}/decompose`, { word: query }).pipe(map(response => response as IDecomposition));
+    // return of({
+    //   translation: "火山",
+    //   characters: [
+    //     {
+    //       character: "火",
+    //       freqRank: 433,
+    //       pinyin: "huǒ",
+    //       radical: "火",
+    //       definitions: ["fire, flame", "burn", "anger, rage"],
+    //       strokeCount: 4,
+    //     },
+    //     {
+    //       character: "山",
+    //       freqRank: 259,
+    //       pinyin: "shān",
+    //       radical: "山",
+    //       definitions: ["mountain", "hill", "peak"],
+    //       strokeCount: 4
+    //     }
+    //   ]
+    // })
   }
 }
