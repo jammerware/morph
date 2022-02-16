@@ -3,19 +3,24 @@
         <div class="breadcrumb">
             <a mat-button [routerLink]="['/']">
                 <mat-icon>arrow_back</mat-icon>
-                {{word}}
+                "{{word}}"
             </a>
         </div>
         <mat-divider></mat-divider>
+    </div>
+
+    <mat-progress-bar *ngIf="!decomposition" mode="indeterminate"></mat-progress-bar>
+
+    <div class="content" *ngIf="decomposition">
         <div class="title">
             <h2 class="chinese">{{decomposition?.translation}}</h2>
             <div class="title-pinyin">
                 ({{pinyin}})
             </div>
         </div>
-    </div>
-
-    <div *ngIf="decomposition" class="character-decompositions">
-        <app-character *ngFor="let character of decomposition.characters" [decomposition]="character"></app-character>
+    
+        <div *ngIf="decomposition" class="character-decompositions">
+            <app-character *ngFor="let character of decomposition.characters" [decomposition]="character"></app-character>
+        </div>
     </div>
 </div>

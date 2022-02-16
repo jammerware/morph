@@ -8,10 +8,9 @@
             <li *ngFor="let definition of decomposition.definitions">{{definition}}</li>
         </ul>
     </div>
-    <p>
-        {{decomposition.strokeCount}} strokes
-    </p>
-    <p>
-        {{decomposition.freqRank}}th most common character
-    </p>
+    
+    <ul>
+        <li>{{decomposition.strokeCount}} strokes</li>
+        <li>{{decomposition.freqRank}}th most common character</li>
+    </ul>
 </div>
