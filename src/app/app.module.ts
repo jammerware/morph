@@ -5,23 +5,23 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppMaterialModule } from './modules/app-material/app-material.module';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppCoreModule } from './modules/app-core/app-core.module';
 import { ExploreModule } from './modules/explore/explore.module';
-import { PaypalDonateComponent } from './modules/app-core/components/paypal-donate/paypal-donate.component';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PaypalDonateComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    AppCoreModule,
     AppRoutingModule,
-    AppMaterialModule
+    AppMaterialModule,
+    ExploreModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

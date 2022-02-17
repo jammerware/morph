@@ -20,7 +20,7 @@
         </div>
     
         <div *ngIf="decomposition" class="character-decompositions">
-            <app-character *ngFor="let character of decomposition.characters" [decomposition]="character"></app-character>
+            <app-character-card *ngFor="let character of decomposition.characters" [decomposition]="character"></app-character-card>
         </div>
     </div>
 </div>

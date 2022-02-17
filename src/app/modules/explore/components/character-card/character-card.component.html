@@ -1,0 +1,19 @@
+<div class="character-card-component">
+    <a [routerLink]="getCharacterLink(decomposition.character)">
+        <div class="character-big chinese">
+            {{decomposition.character}}
+        </div>
+        <div class="character-pinyin">{{decomposition.pinyin}}</div>
+    </a>
+    <div class="definitions">
+        <ul>
+            <li *ngFor="let definition of decomposition.definitions">{{definition}}</li>
+        </ul>
+    </div>
+    
+    <ul>
+        <!-- <li *ngIf="decomposition.semanticRadical != decomposition.character"><strong>Semantic radical: {{decomposition.semanticRadical}}</strong></li> -->
+        <li>{{decomposition.strokeCount}} strokes</li>
+        <li>{{decomposition.freqRank}}th most common character</li>
+    </ul>
+</div>

@@ -1,16 +1,3 @@
-<div class="character-component">
-    <div class="character-big chinese">
-        {{decomposition.character}}
-    </div>
-    <div class="character-pinyin">{{decomposition.pinyin}}</div>
-    <div class="definitions">
-        <ul>
-            <li *ngFor="let definition of decomposition.definitions">{{definition}}</li>
-        </ul>
-    </div>
-    
-    <ul>
-        <li>{{decomposition.strokeCount}} strokes</li>
-        <li>{{decomposition.freqRank}}th most common character</li>
-    </ul>
-</div>
+<p>character works!</p>
+{{(character$ | async)?.character}}
+{{(character$ | async)?.isUnbound}}

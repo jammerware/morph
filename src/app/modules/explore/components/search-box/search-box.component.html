@@ -3,7 +3,7 @@
         <div class="form-row">
             <mat-form-field class="full-width" appearance="fill" [hideRequiredMarker]="true">
                 <mat-label> Try "{{(placeholder$ | async) || DEFAULT_TERM}}"</mat-label>
-                <input #queryInput name="query" [(ngModel)]="query" type="search" matInput minlength="3" autocomplete="off" autofocus>
+                <input #queryInput name="query" [(ngModel)]="query" type="search" matInput minlength="3" autocomplete="off" appAutofocus>
             </mat-form-field>
 
             <button type="button" mat-flat-button color="primary" (click)="raise()" [disabled]="query.length < 3">
