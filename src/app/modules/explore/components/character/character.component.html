@@ -1,8 +1,37 @@
 <div class="character-component">
-    <div class="character-wrap flex-child">
-        <div class="big-character">{{(character$ | async)?.character}}</div>
+    <div class="character-wrap" *ngIf="character$ | async as characterData">
+        <div class="character-and-pinyin">
+            <p class="big-character">{{characterData.character}}</p>
+            <p class="character-pinyin">{{characterData.pinyin}}</p>
+        </div>
+        <div class="other-info flex-child">
+            <ul class="fact-list">
+                <li>
+                    <h1 class="fact-header">DEFINITIONS</h1>
+                    <div>
+                        <ul class="flex-list">
+                            <li *ngFor="let definition of characterData.definitions">{{definition}}</li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <h1 class="fact-header">COMMON WORDS</h1>
+                    <div>
+                        <ul class="flex-list">
+                            <li *ngFor="let wordData of characterData.commonWords">{{wordData.word}}</li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li *ngIf="characterData.semanticRadical">
+                    <h1 class="fact-header">SEMANTIC RADICAL</h1>
+                    <div class="semantic-radical">
+                        {{characterData.semanticRadical.radical}} <span *ngIf="characterData.semanticRadical.definitions">({{characterData.semanticRadical.definitions}})</span> 
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
     
 </div>
-{{(character$ | async)?.isUnbound}}
-{{(character$ | async)?.toString()}}
