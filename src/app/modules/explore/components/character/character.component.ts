@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class CharacterComponent implements OnInit {
   character$: Observable<ICharacterDecomposition>;
+  debug: string;
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) { }
 
@@ -20,7 +21,7 @@ export class CharacterComponent implements OnInit {
     })
   }
 
-  private async loadCharacter(character: string) {
-    this.character$ = await this.apiService.getCharacterDetails(character);
+  private loadCharacter(character: string) {
+    this.character$ = this.apiService.getCharacterDetails(character);
   }
 }

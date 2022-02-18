@@ -11,6 +11,7 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
 import { WordComponent } from './components/word/word.component';
 import { CharacterCardComponent } from './components/character-card/character-card.component';
 import { CharacterComponent } from './components/character/character.component';
+import { CharactersAndPinyinComponent } from './components/characters-and-pinyin/characters-and-pinyin.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CharacterComponent } from './components/character/character.component';
     CharacterCardComponent,
     WordComponent,
     CharacterComponent,
+    CharactersAndPinyinComponent,
   ],
   imports: [
     CommonModule,

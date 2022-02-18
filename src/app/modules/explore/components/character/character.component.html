@@ -1,3 +1,8 @@
-<p>character works!</p>
-{{(character$ | async)?.character}}
+<div class="character-component">
+    <div class="character-wrap flex-child">
+        <div class="big-character">{{(character$ | async)?.character}}</div>
+    </div>
+    
+</div>
 {{(character$ | async)?.isUnbound}}
+{{(character$ | async)?.toString()}}
