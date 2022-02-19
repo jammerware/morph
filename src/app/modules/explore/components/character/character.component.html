@@ -7,7 +7,7 @@
         <div class="other-info flex-child">
             <ul class="fact-list">
                 <li>
-                    <h1 class="fact-header">DEFINITIONS</h1>
+                    <h1 class="fact-header">Definitions</h1>
                     <div>
                         <ul class="flex-list">
                             <li *ngFor="let definition of characterData.definitions">{{definition}}</li>
@@ -16,16 +16,18 @@
                 </li>
 
                 <li>
-                    <h1 class="fact-header">COMMON WORDS</h1>
+                    <h1 class="fact-header">Common words</h1>
                     <div>
                         <ul class="flex-list">
-                            <li *ngFor="let wordData of characterData.commonWords">{{wordData.word}}</li>
+                            <li *ngFor="let wordData of characterData.commonWords">
+                                <a [routerLink]="'/word/' + wordData.word">{{wordData.word}}</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
 
                 <li *ngIf="characterData.semanticRadical">
-                    <h1 class="fact-header">SEMANTIC RADICAL</h1>
+                    <h1 class="fact-header">Semantic radical</h1>
                     <div class="semantic-radical">
                         {{characterData.semanticRadical.radical}} <span *ngIf="characterData.semanticRadical.definitions">({{characterData.semanticRadical.definitions}})</span> 
                     </div>
