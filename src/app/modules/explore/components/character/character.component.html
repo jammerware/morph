@@ -26,10 +26,13 @@
                     </div>
                 </li>
 
-                <li *ngIf="characterData.semanticRadical">
+                <li *ngIf="characterData.semanticRadical as semanticRadical">
                     <h1 class="fact-header">Semantic radical</h1>
                     <div class="semantic-radical">
-                        {{characterData.semanticRadical.radical}} <span *ngIf="characterData.semanticRadical.definitions">({{characterData.semanticRadical.definitions}})</span> 
+                        {{semanticRadical.variant || semanticRadical.radical }} 
+                        <span *ngIf="semanticRadical.variant">/ {{semanticRadical.radical}}</span>
+                        &nbsp;
+                        <span *ngIf="semanticRadical.translation">({{semanticRadical.translation}})</span>
                     </div>
                 </li>
             </ul>

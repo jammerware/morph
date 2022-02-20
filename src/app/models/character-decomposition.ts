@@ -11,6 +11,10 @@ export interface ICharacterDecomposition {
     }[],
     semanticRadical: {
         radical: string;
-        definitions: string[] | null;
+        radicalNo: number;
+        pinyin: string;
+        strokeCount: number;
+        variant: string;
+        translation: string;
     } | null
 }
