@@ -1,6 +1,9 @@
 <div class="app-component">
   <div class="flex-spacer"></div>
-  <a [routerLink]="['/']" class="app-title">Morph</a>
+  <div class="app-title-wrap">
+    <a [routerLink]="['/']" class="app-title">Morph</a>
+    <span class="alpha-note">[ alpha ]</span>
+  </div>
   <div class="content-wrap">
     <main>
       <router-outlet></router-outlet>
@@ -11,10 +14,15 @@
       v<span class="version-number">{{appVersion}}</span>&nbsp; | &nbsp;
     </div>
     <div class="background-image-note">
-      Background photo by <a href="https://www.pexels.com/photo/calm-body-of-lake-between-mountains-346529/" target="_blank">Bri Schneiter</a>
+      Background photo by <a href="https://www.pexels.com/photo/calm-body-of-lake-between-mountains-346529/" target="_blank">Bri Schneiter</a>.
     </div>
     <div class="flex-spacer"></div>
-    <app-paypal-donate></app-paypal-donate>
+    <!-- <app-paypal-donate></app-paypal-donate> -->
+    <div>
+      Bug? Idea? Submit
+      <a href="https://github.com/jammerware/morph/issues/new" target="_blank">here</a>.
+    </div>
   </footer>
   <div class="flex-spacer"></div>
+  <app-welcome></app-welcome>
 </div>

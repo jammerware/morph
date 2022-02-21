@@ -9,7 +9,8 @@ import { VersionService } from './services/version.service';
 export class AppComponent {
   appVersion: string;
 
-  constructor(private versionService: VersionService) { }
+  constructor(
+    private versionService: VersionService) { }
 
   ngOnInit() { 
     this.appVersion = this.versionService.get();
