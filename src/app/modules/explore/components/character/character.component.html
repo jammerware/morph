@@ -18,11 +18,11 @@
                 <li>
                     <h1 class="fact-header">Common words</h1>
                     <div>
-                        <ul class="flex-list">
-                            <li *ngFor="let wordData of characterData.commonWords">
-                                <a [routerLink]="'/word/' + wordData.word">{{wordData.word}}</a>
-                            </li>
-                        </ul>
+                        <mat-chip-list aria-label="Common words">
+                            <mat-chip *ngFor="let wordData of characterData.commonWords" [routerLink]="'/word/' + wordData.word">
+                                {{wordData.word}}
+                            </mat-chip>
+                        </mat-chip-list>
                     </div>
                 </li>
 
