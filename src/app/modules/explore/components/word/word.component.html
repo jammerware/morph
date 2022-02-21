@@ -9,7 +9,7 @@
         <mat-divider></mat-divider>
     </div>
 
-    <mat-progress-bar *ngIf="!decomposition" mode="indeterminate"></mat-progress-bar>
+    <mat-progress-bar *ngIf="!decomposition" mode="indeterminate" color="accent"></mat-progress-bar>
 
     <div class="content" *ngIf="decomposition">
         <app-characters-and-pinyin [characters]="decomposition?.translation" [pinyin]="pinyin"></app-characters-and-pinyin>

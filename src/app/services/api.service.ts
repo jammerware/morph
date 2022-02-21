@@ -76,9 +76,20 @@ export class ApiService {
       "refrigerator",
       "car",
       "frog",
-      "raccoon",
+      "panda",
       "sweater",
-      "apartment"
+      "apartment",
+      "grasshopper",
+      "juggle",
+      "chef",
+      "fight",
+      "happiness",
+      "wristwatch",
+      "cell phone",
+      "bottle",
+      "hug",
+      "fish",
+      "background"
     ]);
   }
 

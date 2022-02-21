@@ -2,7 +2,7 @@
     <form id="search" #search="ngForm" (ngSubmit)="formSubmit" (keydown.enter)="onEnter($event)">
         <div class="form-row">
             <mat-form-field class="full-width" appearance="fill" [hideRequiredMarker]="true">
-                <mat-label> Try "{{(placeholder$ | async) || DEFAULT_TERM}}"</mat-label>
+                <mat-label> Try "{{(placeholder$ | async) || defaultHint}}"</mat-label>
                 <input #queryInput name="query" [(ngModel)]="query" type="search" matInput minlength="3" autocomplete="off" appAutofocus>
             </mat-form-field>
 

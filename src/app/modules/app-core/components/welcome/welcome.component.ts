@@ -16,7 +16,9 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.cookieService.get('isWelcomed')) {
-      this.matDialogService.open(WelcomeDialogComponent);
+      this.matDialogService.open(WelcomeDialogComponent, {
+        maxWidth: '600px'
+      });
       this.cookieService.set('isWelcomed', 'true');
     }
   }
