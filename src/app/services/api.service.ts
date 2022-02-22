@@ -89,7 +89,8 @@ export class ApiService {
       "bottle",
       "hug",
       "fish",
-      "background"
+      "background",
+      "tuition"
     ]);
   }
 
