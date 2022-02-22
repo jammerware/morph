@@ -8,9 +8,9 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./search-box.component.less']
 })
 export class SearchBoxComponent implements OnInit {
+  @Input() defaultHint = '';
   @Input() query = '';
   @Output() search = new EventEmitter<{ query: string }>();
-  DEFAULT_TERM = "raccoon";
 
   // pretty suggestions
   private popularTerms: string[] = [];
@@ -26,7 +26,7 @@ export class SearchBoxComponent implements OnInit {
         return this.popularTerms[Math.floor(Math.random() * this.popularTerms.length)];
       }
 
-      return this.DEFAULT_TERM;
+      return this.defaultHint;
     }));
   }
 

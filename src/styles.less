@@ -4,18 +4,27 @@
     src: url('assets/fonts/NotoSansSC-Regular.otf'), url('assets/fonts/NotoSansSC-Black.otf'), url('assets/fonts//NotoSansSC-Bold.otf'), url('assets/fonts/NotoSansSC-Light.otf'), url('assets/fonts/NotoSansSC-Medium.otf'), url('assets/fonts/NotoSansSC-Thin.otf');
 }
 
+.app-logo-font {
+    font-family: 'Passion One', cursive;
+    text-transform: lowercase;
+}
+
 .chinese {
     font-family: 'Noto Sans SC', sans-serif !important;
 }
 
 /* GLOBAL STYLES */
-html, body { height: 100%; }
+html, body { 
+    height: 100%; 
+}
 
-ul, ol {
+ul, ol {// background-color: #;
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
+
+a { text-decoration: none; color: unset;}
 
 body { 
     background: url('assets/pexels-bri-schneiter-346529.jpg') center content-box content-box fixed;
@@ -26,4 +35,16 @@ body {
 
 .mat-divider {
     border-top-color: #888;
+}
+
+.page-title {
+    font-size: 4rem !important;
+    font-weight: bold !important;
+}
+
+.character-pinyin {
+    color: #888888;
+    font-size: 2.5rem;
+    margin-left: 1rem;
+    padding-top: 0.5rem;
 }

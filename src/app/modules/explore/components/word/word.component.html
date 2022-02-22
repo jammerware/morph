@@ -9,18 +9,13 @@
         <mat-divider></mat-divider>
     </div>
 
-    <mat-progress-bar *ngIf="!decomposition" mode="indeterminate"></mat-progress-bar>
+    <mat-progress-bar *ngIf="!decomposition" mode="indeterminate" color="accent"></mat-progress-bar>
 
     <div class="content" *ngIf="decomposition">
-        <div class="title">
-            <h2 class="chinese">{{decomposition?.translation}}</h2>
-            <div class="title-pinyin">
-                ({{pinyin}})
-            </div>
-        </div>
-    
+        <app-characters-and-pinyin [characters]="decomposition?.translation" [pinyin]="pinyin"></app-characters-and-pinyin>
+        
         <div *ngIf="decomposition" class="character-decompositions">
-            <app-character *ngFor="let character of decomposition.characters" [decomposition]="character"></app-character>
+            <app-character-card *ngFor="let character of decomposition.characters" [decomposition]="character"></app-character-card>
         </div>
     </div>
 </div>

@@ -1,28 +1,45 @@
-.character-big {
-    display: block;
-    font-size: 6rem;
-    line-height: 6.5rem;
-    text-align: center;
+.character-component {
+    margin: 2rem 0;
+
+    mat-chip {
+        cursor: pointer !important;
+    }
 }
 
-.character-pinyin {
-    font-size: 2rem;
-    font-weight: bold;
-    line-height: 2.25rem;
-    text-align: center;
+.character-wrap {
+    display: flex;
+
+    .flex-child {
+        flex-grow: 1;
+    }
 }
 
-.definitions {
-    text-transform: uppercase;
+.character-and-pinyin {
+    text-align: center;
+    padding: 0 4rem;
+}
 
-    ul {
+.big-character {
+    font-size: 8rem;
+    line-height: 8.2rem;
+}
+
+.fact-list {
+    .fact-header {
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    > li {
+        margin-bottom: 2rem;
+    }
+
+    .flex-list {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
 
         li {
-            font-weight: bolder;
-            margin-right: 1rem;
+            font-size: 1.2rem;
+            margin-right: 2rem;
         }
     }
 }

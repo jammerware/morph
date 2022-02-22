@@ -1,16 +1,42 @@
 <div class="character-component">
-    <div class="character-big chinese">
-        {{decomposition.character}}
-    </div>
-    <div class="character-pinyin">{{decomposition.pinyin}}</div>
-    <div class="definitions">
-        <ul>
-            <li *ngFor="let definition of decomposition.definitions">{{definition}}</li>
-        </ul>
+    <div class="character-wrap" *ngIf="character$ | async as characterData">
+        <div class="character-and-pinyin">
+            <p class="big-character">{{characterData.character}}</p>
+            <p class="character-pinyin">{{characterData.pinyin}}</p>
+        </div>
+        <div class="other-info flex-child">
+            <ul class="fact-list">
+                <li>
+                    <h1 class="fact-header">Definitions</h1>
+                    <div>
+                        <ul class="flex-list">
+                            <li *ngFor="let definition of characterData.definitions">{{definition}}</li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <h1 class="fact-header">Common words</h1>
+                    <div>
+                        <mat-chip-list aria-label="Common words">
+                            <mat-chip *ngFor="let wordData of characterData.commonWords" [routerLink]="'/word/' + wordData.word">
+                                {{wordData.word}}
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </li>
+
+                <li *ngIf="characterData.semanticRadical as semanticRadical">
+                    <h1 class="fact-header">Semantic radical</h1>
+                    <div class="semantic-radical">
+                        {{semanticRadical.variant || semanticRadical.radical }} 
+                        <span *ngIf="semanticRadical.variant">/ {{semanticRadical.radical}}</span>
+                        &nbsp;
+                        <span *ngIf="semanticRadical.translation">({{semanticRadical.translation}})</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
     
-    <ul>
-        <li>{{decomposition.strokeCount}} strokes</li>
-        <li>{{decomposition.freqRank}}th most common character</li>
-    </ul>
 </div>
