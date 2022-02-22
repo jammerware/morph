@@ -27,7 +27,10 @@ export class ApiService {
       throw new Error(`getDecomposition requires a non-null/non-empty query argument. Passed: "${query}"`)
     }
     
-    return this.http.post(`${this.API_ROOT}/decompose`, { word: query }).pipe(map(response => response as IDecomposition));
+    return this.http.post(`${this.API_ROOT}/decompose`, { word: query }).pipe(map((response: any) => {
+      response.translation = response.translation.translation;
+      return response as IDecomposition;
+    }));
     // return of({
     //   translation: "火山",
     //   characters: [
