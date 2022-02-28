@@ -1,19 +1,20 @@
 <div class="word-component">
-    <div class="header-wrap">
-        <div class="breadcrumb">
-            <a mat-button [routerLink]="['/']">
-                <mat-icon>arrow_back</mat-icon>
-                "{{word}}"
-            </a>
-        </div>
-        <mat-divider></mat-divider>
+    <div class="loading" *ngIf="!decomposition">
+        <mat-progress-bar *ngIf="!decomposition" mode="indeterminate" color="accent"></mat-progress-bar>
+        <p>Looking up <strong>{{word}}</strong>...</p>
     </div>
 
-    <mat-progress-bar *ngIf="!decomposition" mode="indeterminate" color="accent"></mat-progress-bar>
-
     <div class="content" *ngIf="decomposition">
-        <app-characters-and-pinyin [characters]="decomposition?.word?.translation" [pinyin]="pinyin"></app-characters-and-pinyin>
-        
+        <div class="header-wrap" *ngIf="decomposition">
+            <button mat-icon-button [routerLink]="['/']">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <h2 class="page-title">
+                <span>"{{decomposition?.word?.l1 | lowercase}}"</span>
+                (<span class="chinese">{{decomposition?.word?.translation}}</span> <span class="character-pinyin">{{pinyin}}</span>)
+            </h2>
+        </div>
+        <mat-divider></mat-divider>
         <div *ngIf="decomposition" class="character-decompositions">
             <app-character-card *ngFor="let character of decomposition.characters" [decomposition]="character"></app-character-card>
         </div>
