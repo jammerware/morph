@@ -12,6 +12,7 @@ import { WordComponent } from './components/word/word.component';
 import { CharacterCardComponent } from './components/character-card/character-card.component';
 import { CharacterComponent } from './components/character/character.component';
 import { CharactersAndPinyinComponent } from './components/characters-and-pinyin/characters-and-pinyin.component';
+import { CharacterCommonWordsComponent } from './components/character-common-words/character-common-words.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CharactersAndPinyinComponent } from './components/characters-and-pinyin
     WordComponent,
     CharacterComponent,
     CharactersAndPinyinComponent,
+    CharacterCommonWordsComponent,
   ],
   imports: [
     CommonModule,

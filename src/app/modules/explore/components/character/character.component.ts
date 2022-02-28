@@ -27,6 +27,6 @@ export class CharacterComponent implements OnInit {
 
   private loadCharacter(character: string) {
     this.character$ = this.apiService.getCharacterDetails(character);
-    this.title.set(`Character "${character}"`);
+    this.title.set(`${character}`);
   }
 }

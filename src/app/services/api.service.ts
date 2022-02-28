@@ -110,6 +110,6 @@ export class ApiService {
   }
 
   translate(queries: string[]): Observable<ITranslationResult> {
-    return this.http.post<ITranslationResult>(`${this.API_ROOT}/translateAll`, { text: queries});
+    return this.http.post<ITranslationResult>(`${this.API_ROOT}/translate/all`, { text: queries });
   }
 }
