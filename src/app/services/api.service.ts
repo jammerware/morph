@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, of } from 'rxjs';
+import { map, Observable, of, concatMap, tap } from 'rxjs';
 import { IDecomposition } from 'src/app/models/decomposition';
 import { ICharacterDecomposition } from '../models/character-decomposition';
 
@@ -99,15 +99,24 @@ export class ApiService {
       .pipe(map(response => response as ICharacterDecomposition));
   }
 
+  // getDecomposition(query: string): Observable<IDecomposition> {
+  //   if (!query || query == '') {
+  //     throw new Error(`getDecomposition requires a non-null/non-empty query argument. Passed: "${query}"`)
+  //   }
+
+  //   // return of(this.MOCK_API_RESULTS);
+  //   return this.http.post(`${this.API_ROOT}/decompose`, { word: query }).pipe(map((response: any) => {
+  //     response.translation = response.translation.translation;
+  //     return response as IDecomposition;
+  //   }));
+  // }
+ 
   getDecomposition(query: string): Observable<IDecomposition> {
     if (!query || query == '') {
       throw new Error(`getDecomposition requires a non-null/non-empty query argument. Passed: "${query}"`)
     }
 
-    // return of(this.MOCK_API_RESULTS);
-    return this.http.post(`${this.API_ROOT}/decompose`, { word: query }).pipe(map((response: any) => {
-      response.translation = response.translation.translation;
-      return response as IDecomposition;
-    }));
+    return this.http.post<{ translation: string, targetLanguage: string}>(`${this.API_ROOT}/translate/${query}`, { text: query })
+      .pipe(concatMap(translationResponse => this.http.get<IDecomposition>(`${this.API_ROOT}/decomposition/${translationResponse.translation}`)));
   }
 }

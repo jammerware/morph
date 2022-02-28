@@ -12,7 +12,7 @@
     <mat-progress-bar *ngIf="!decomposition" mode="indeterminate" color="accent"></mat-progress-bar>
 
     <div class="content" *ngIf="decomposition">
-        <app-characters-and-pinyin [characters]="decomposition?.translation" [pinyin]="pinyin"></app-characters-and-pinyin>
+        <app-characters-and-pinyin [characters]="decomposition?.word" [pinyin]="pinyin"></app-characters-and-pinyin>
         
         <div *ngIf="decomposition" class="character-decompositions">
             <app-character-card *ngFor="let character of decomposition.characters" [decomposition]="character"></app-character-card>
