@@ -1,6 +1,9 @@
 import { ICharacterDecomposition } from "./character-decomposition";
 
 export interface IDecomposition {
-    word: string;
+    word: {
+        l1: string;
+        translation: string;
+    };
     characters: ICharacterDecomposition[];
 }
