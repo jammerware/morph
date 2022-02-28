@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable, of, concatMap, tap } from 'rxjs';
 import { IDecomposition } from 'src/app/models/decomposition';
 import { ICharacterDecomposition } from '../models/character-decomposition';
+import { ITranslationResult } from '../models/translation-result';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
@@ -104,7 +105,11 @@ export class ApiService {
       throw new Error(`getDecomposition requires a non-null/non-empty query argument. Passed: "${query}"`)
     }
 
-    return this.http.post<{ translation: string, targetLanguage: string}>(`${this.API_ROOT}/translate`, { text: query })
+    return this.http.get<{ translation: string, targetLanguage: string}>(`${this.API_ROOT}/translate/${query}/`)
       .pipe(concatMap(translationResponse => this.http.get<IDecomposition>(`${this.API_ROOT}/decomposition/${translationResponse.translation}`)));
+  }
+
+  translate(queries: string[]): Observable<ITranslationResult> {
+    return this.http.post<ITranslationResult>(`${this.API_ROOT}/translateAll`, { text: queries});
   }
 }
