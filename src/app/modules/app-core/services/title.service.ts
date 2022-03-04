@@ -5,6 +5,10 @@ import { Title } from '@angular/platform-browser';
 export class TitleService {
   constructor(private title: Title) { }
 
+  clear() {
+    this.set('');
+  }
+
   set(title: string) {
     if (!title) {
       this.title.setTitle("Morph");

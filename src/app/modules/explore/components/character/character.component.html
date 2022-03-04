@@ -15,10 +15,17 @@
                     </div>
                 </li>
 
-                <li>
+                <li *ngIf="characterData.commonWords?.length">
                     <h1 class="fact-header">Common words</h1>
                     <div>
                         <app-character-common-words [words]="characterData.commonWords" ></app-character-common-words>
+                    </div>
+                </li>
+
+                <li *ngIf="characterData.isUnbound">
+                    <h1>Unbound</h1>
+                    <div>
+                        <strong>{{characterData.character}} can appear by itself.</strong>
                     </div>
                 </li>
 

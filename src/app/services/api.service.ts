@@ -8,6 +8,7 @@ import { ITranslationResult } from '../models/translation-result';
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   API_ROOT = "https://morph-chinese.herokuapp.com";
+  // API_ROOT = "http://localhost:3000";
   MOCK_API_RESULTS = {
     translation: "火山",
     characters: [

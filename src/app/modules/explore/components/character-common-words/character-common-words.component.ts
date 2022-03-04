@@ -15,7 +15,9 @@ export class CharacterCommonWordsComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.words$ = this.apiService.translate(this.words.map(w => w.word))
+    if (this.words && this.words.length) {
+      this.words$ = this.apiService.translate(this.words.map(w => w.word))
+    }
   }
 
 }
