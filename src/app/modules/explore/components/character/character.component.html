@@ -22,13 +22,6 @@
                     </div>
                 </li>
 
-                <li *ngIf="characterData.isUnbound">
-                    <h1>Unbound</h1>
-                    <div>
-                        <strong>{{characterData.character}} can appear by itself.</strong>
-                    </div>
-                </li>
-
                 <li *ngIf="characterData.semanticRadical as semanticRadical">
                     <h1 class="fact-header">Semantic radical</h1>
                     <div class="semantic-radical">
@@ -36,6 +29,15 @@
                         <span *ngIf="semanticRadical.variant">/ {{semanticRadical.radical}}</span>
                         &nbsp;
                         <span *ngIf="semanticRadical.translation">({{semanticRadical.translation}})</span>
+                    </div>
+                </li>
+
+                <li *ngIf="!characterData.isUnbound">
+                    <h1 class="fact-header">Special characteristics</h1>
+                    <div>
+                        Most characters in Chinese can represent a word by themselves, but 
+                        <strong>{{characterData.character}}</strong> can't. Characters like this are called
+                        "bound" characters.
                     </div>
                 </li>
             </ul>
