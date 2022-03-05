@@ -9,7 +9,7 @@ import { TitleService } from 'src/app/modules/app-core/services/title.service';
 @Component({
   selector: 'app-word',
   templateUrl: './word.component.html',
-  styleUrls: ['./word.component.less']
+  styleUrls: ['./word.component.scss']
 })
 export class WordComponent implements OnInit {
   decomposition: IDecomposition;

@@ -10,8 +10,8 @@
                 <mat-icon>arrow_back</mat-icon>
             </button>
             <h2 class="page-title">
-                <span>"{{decomposition?.word?.l1 | lowercase}}"</span>
-                (<span class="chinese">{{decomposition?.word?.translation}}</span> <span class="character-pinyin">{{pinyin}}</span>)
+                <div class="word">{{decomposition?.word?.l1 | lowercase}}</div>
+                <div class="pinyin">({{pinyin}})</div>
             </h2>
         </div>
         <mat-divider></mat-divider>

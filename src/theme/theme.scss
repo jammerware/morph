@@ -4,7 +4,7 @@
 // https://material.angular.io/guide/theming#custom-themes-with-sass
 // https://material.io/design/color/the-color-system.html#tools-for-picking-colors
 
-$primary-blue-palette: (
+$primary-palette-def: (
     50: #e5f0f3,
     100: #bddbe4,
     200: #98c4d3,
@@ -29,7 +29,7 @@ $primary-blue-palette: (
     )
 );
 
-$primary: mat.define-palette($primary-blue-palette);
+$primary: mat.define-palette($primary-palette-def);
 $accent: mat.define-palette(mat.$orange-palette, 500);
 
 $light-theme: mat.define-light-theme((
