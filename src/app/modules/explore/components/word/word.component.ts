@@ -23,6 +23,7 @@ export class WordComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.route.params.subscribe(async params => {
+      console.log('looking up', params['word']);
       await this.loadWord(params['word'] || '');
     });
   }
