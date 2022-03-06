@@ -2,6 +2,12 @@
     <div class="loading" *ngIf="!decomposition">
         <mat-progress-bar *ngIf="!decomposition" mode="indeterminate" color="accent"></mat-progress-bar>
         <p>Looking up <strong>{{word}}</strong>...</p>
+        <p class="heroku-note">
+            Don't worry if this takes awhile. Morph is (gratefully) hosted on free servers at
+            <a href="https://heroku.com" target="_blank" class="text-link">Heroku</a>. The downside of this is that the app goes
+            to sleep if it isn't used for awhile, so it takes it a bit to wake up. If you look up more words in the next
+            15 minutes or so, Morph will be much faster 👍🏻
+        </p>
     </div>
 
     <div class="content" *ngIf="decomposition">

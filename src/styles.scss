@@ -1,3 +1,6 @@
+@use 'sass:map';
+@import 'theme/globals';
+
 /* FONTS */
 @font-face {
     font-family: 'Noto Sans SC';
@@ -24,7 +27,15 @@ ul, ol {// background-color: #;
     padding: 0;
 }
 
-a { text-decoration: none; color: unset;}
+a {
+    color: unset;
+    text-decoration: none;
+    
+    &.text-link {
+        color: map.get($primary-palette-def, 300); 
+        font-weight: bold;
+    }
+}
 
 body { 
     background: url('assets/pexels-bri-schneiter-346529.jpg') center content-box content-box fixed;
