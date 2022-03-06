@@ -1,9 +1,5 @@
-@use '@angular/material' as mat;
-@import 'src/theme/theme';
-
-button {
-    text-transform: uppercase;
-}
+@use 'sass:map';
+@import 'src/theme/globals';
 
 .header-wrap {
     display: flex;
@@ -13,7 +9,10 @@ button {
         display: flex;
 
         .pinyin {
-            color: mat.get-color-from-palette($primary, 200);
+            color: map.get($primary-palette-def, 200);
+            // i need to figure out how to access mat functions without accidentally bloating/duplicating.
+            // this threw an over-budget error, so i have to manually get the shade from the map instead
+            // color: mat.get-color-from-palette($primary, 200);
             margin-left: 1.2rem;
         }
     }
