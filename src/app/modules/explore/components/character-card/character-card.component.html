@@ -1,18 +1,20 @@
 <div class="character-card-component">
-    <a [routerLink]="getCharacterLink(decomposition.character)">
-        <div class="character-big chinese">
-            {{decomposition.character}}
+    <div class="content-wrap">
+        <a [routerLink]="getCharacterLink(decomposition.character)">
+            <div class="character-big chinese">
+                {{decomposition.character}}
+            </div>
+            <div class="character-pinyin">{{decomposition.pinyin}}</div>
+        </a>
+        <div class="definitions">
+            <ul>
+                <li *ngFor="let definition of decomposition.definitions">{{definition}}</li>
+            </ul>
         </div>
-        <div class="character-pinyin">{{decomposition.pinyin}}</div>
-    </a>
-    <div class="definitions">
+        
         <ul>
-            <li *ngFor="let definition of decomposition.definitions">{{definition}}</li>
+            <li>{{decomposition.freqRank}}{{numberSuffix}} most common character</li>
+            <li>{{decomposition.strokeCount}} strokes</li>
         </ul>
     </div>
-    
-    <ul>
-        <li>{{decomposition.freqRank}}{{numberSuffix}} most common character</li>
-        <li>{{decomposition.strokeCount}} strokes</li>
-    </ul>
 </div>

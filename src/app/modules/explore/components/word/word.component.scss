@@ -33,12 +33,13 @@
 
 .character-decompositions {
     display: flex;
-    flex-grow: 1;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     margin-top: 1rem;
 
-    app-character {
+    app-character-card {
         display: block;
+        flex-grow: 1;
     }
 }
