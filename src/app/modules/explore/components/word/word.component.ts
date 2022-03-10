@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { firstValueFrom, Observable } from 'rxjs';
 import { IDecomposition } from 'src/app/models/decomposition';
 
 import { ApiService } from 'src/app/services/api.service';
 import { TitleService } from 'src/app/modules/app-core/services/title.service';
+import { NgxKeyboardEventsService, NgxKey } from 'ngx-keyboard-events';
 
 @Component({
   selector: 'app-word',
@@ -18,13 +19,20 @@ export class WordComponent implements OnInit {
 
   constructor(
     private apiService: ApiService, 
+    private keyboard: NgxKeyboardEventsService,
     private route: ActivatedRoute,
+    private router: Router,
     private title: TitleService) { }
 
   async ngOnInit(): Promise<void> {
     this.route.params.subscribe(async params => {
-      console.log('looking up', params['word']);
       await this.loadWord(params['word'] || '');
+    });
+
+    this.keyboard.onKeyPressed.subscribe(event => {
+      if(event.code == NgxKey.Backspace) {
+        this.router.navigateByUrl('/');
+      }
     });
   }
 

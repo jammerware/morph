@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NgxKeyboardEventsModule } from 'ngx-keyboard-events';
 
 import { AppCoreModule } from '../app-core/app-core.module';
 import { AppMaterialModule } from '../app-material/app-material.module';
@@ -28,6 +29,7 @@ import { CharacterCommonWordsComponent } from './components/character-common-wor
     CommonModule,
     FormsModule,
     RouterModule,
+    NgxKeyboardEventsModule,
     AppCoreModule,
     AppMaterialModule
   ]
