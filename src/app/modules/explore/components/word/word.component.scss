@@ -3,16 +3,17 @@
 
 .header-wrap {
     display: flex;
-    margin: 1rem 0;
+    margin: 2rem 0;
 
     .page-title {
         display: flex;
 
         .pinyin {
-            color: map.get($primary-palette-def, 200);
             // i need to figure out how to access mat functions without accidentally bloating/duplicating.
             // this threw an over-budget error, so i have to manually get the shade from the map instead
             // color: mat.get-color-from-palette($primary, 200);
+            color: map.get($primary-palette-def, 200);
+            font-weight: normal;
             margin-left: 1.2rem;
         }
     }
