@@ -1,5 +1,7 @@
 # Morph
 
+The alpha version of the app is live [here](https://morph-340013.firebaseapp.com/)!
+
 Morph is an app designed to help you learn Chinese by allowing you to translate a word from your native language into Chinese, then decomposing the Chinese word into characters. I find that this is especially useful in learning and remembering semantically "transparent" words like "volcano", which is "火山" in Chinese. The character 火 can be translated as "fire", and 山 as "mountain". 
 
 My currently-underdeveloped hypothesis is that words like this are easier to learn and recall when you're taught what their constituent characters mean. Myself and my collaborators are currently developing a study that will assess a related research in question situated in the greater context of Chinese second-language acquisition.
