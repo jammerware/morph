@@ -7,6 +7,7 @@
 
     .page-title {
         display: flex;
+        flex-wrap: wrap;
 
         .pinyin {
             // i need to figure out how to access mat functions without accidentally bloating/duplicating.

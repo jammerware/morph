@@ -1,13 +1,21 @@
 .app-component {
+    height: 99%;
+}
+
+.horizontal-layout {
+    display: flex;
+    flex-direction: row;
+}
+
+.vertical-layout {
     display: flex;
     flex-direction: column;
-    height: 99%;
-    margin: 0 auto;
-    max-width: 1000px;
+}
 
-    .flex-spacer {
-        flex-grow: 1;
-    }
+.app-wrap {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 1rem;
 }
 
 .app-title-wrap {
@@ -29,7 +37,6 @@
 }
 
 .content-wrap {
-    // background-color: #eeeeee;
     border-radius: 4px;
     box-sizing: border-box;
     display: flex;
@@ -49,6 +56,10 @@ footer {
     display: flex;
     padding: 0.5rem 0 0 0;
     width: 100%;
+
+    .version-bar {
+        margin: 0 0.5rem;
+    }
     
     a {
         font-weight: bold;

@@ -1,27 +1,33 @@
-<div class="app-component">
+<div class="app-component horizontal-layout">
   <div class="flex-spacer"></div>
-  <div class="app-title-wrap">
-    <a [routerLink]="['/']" class="app-title app-logo-font">Morph</a>
-    <a [routerLink]="['/about']" class="alpha-note">[ alpha ]</a>
-  </div>
-  <div class="content-wrap mat-app-background">
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-  </div>
-  <footer>
-    <div class="version">
-      v<span class="version-number">{{appVersion}}</span>&nbsp; | &nbsp;
-    </div>
-    <div class="background-image-note">
-      Background photo by <a href="https://www.pexels.com/photo/calm-body-of-lake-between-mountains-346529/" target="_blank">Bri Schneiter</a>.
-    </div>
+  <div class="app-wrap vertical-layout">
     <div class="flex-spacer"></div>
-    <!-- <app-paypal-donate></app-paypal-donate> -->
-    <div>
-      Bug? Idea? Submit it
-      <a href="https://github.com/jammerware/morph/issues/new" target="_blank">here</a>.
+    <div class="app-title-wrap">
+      <a [routerLink]="['/']" class="app-title app-logo-font">Morph</a>
+      <a [routerLink]="['/about']" class="alpha-note">[ alpha ]</a>
     </div>
-  </footer>
+    <div class="content-wrap mat-app-background">
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+    <footer>
+      <div class="version">
+        v<span class="version-number">{{appVersion}}</span>
+      </div>
+      <div class="version-bar">|</div>
+      <div class="background-image-note">
+        Background photo by <a href="https://www.pexels.com/photo/calm-body-of-lake-between-mountains-346529/" target="_blank">Bri Schneiter</a>.
+      </div>
+      <div class="flex-spacer"></div>
+      <!-- <app-paypal-donate></app-paypal-donate> -->
+      <div>
+
+        Bug/idea? Submit
+        <a href="https://github.com/jammerware/morph/issues/new" target="_blank">here</a>.
+      </div>
+    </footer>
+    <div class="flex-spacer"></div>
+  </div>
   <div class="flex-spacer"></div>
 </div>

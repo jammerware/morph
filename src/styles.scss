@@ -21,7 +21,7 @@ html, body {
     height: 100%; 
 }
 
-ul, ol {// background-color: #;
+ul, ol {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -48,6 +48,9 @@ button {
     text-transform: uppercase;
 }
 
+.flex-spacer {
+    flex-grow: 1;
+}
 
 .page-title {
     font-size: 4rem !important;
