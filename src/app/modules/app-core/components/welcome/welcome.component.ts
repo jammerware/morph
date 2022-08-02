@@ -3,6 +3,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { CookieService } from 'ngx-cookie-service';
 import { WelcomeDialogComponent } from '../welcome-dialog/welcome-dialog.component';
 
+// not in use currently because i'm not collaborating with a specific audience
+
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
