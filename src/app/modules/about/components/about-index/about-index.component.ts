@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleService } from 'src/app/modules/app-core/services/title.service';
 
 @Component({
   selector: 'app-about-index',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutIndexComponent implements OnInit {
 
-  constructor() { }
+  constructor(private title: TitleService) { }
 
   ngOnInit(): void {
+    this.title.set("About");
   }
 
 }
