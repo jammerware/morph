@@ -12,7 +12,7 @@ This technique works well with transparent words, but less well with words that 
 
 ## Special thanks
 
-Morph uses data from a number of related projects (with much gratitude). These include:
+Morph uses data from related projects (with much gratitude). These include:
 
-### The Chinese Lexical Database
-Sun, C. C., Hendrix, P., Ma, J.Q. & Baayen, R. H. (2018). Chinese Lexical Database (CLD): A large-scale lexical database for simplified Mandarin Chinese. Behavior Research Methods, [https://doi.org/10.3758/s13428-018-1038-3](https://doi.org/10.3758/s13428-018-1038-3).
+- **The Chinese Lexical Database**: Sun, C. C., Hendrix, P., Ma, J.Q. & Baayen, R. H. (2018). Chinese Lexical Database (CLD): A large-scale lexical database for simplified Mandarin Chinese. Behavior Research Methods, [https://doi.org/10.3758/s13428-018-1038-3](https://doi.org/10.3758/s13428-018-1038-3).
+- [Hanzi DB](http://hanzidb.org/)
