@@ -13,5 +13,4 @@ export class AboutIndexComponent implements OnInit {
   ngOnInit(): void {
     this.title.set("About");
   }
-
 }

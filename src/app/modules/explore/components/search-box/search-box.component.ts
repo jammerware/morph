@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { firstValueFrom, interval, map, Observable } from 'rxjs';
-import { ApiService } from 'src/app/services/api.service';
+import { interval, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-search-box',
@@ -10,20 +9,18 @@ import { ApiService } from 'src/app/services/api.service';
 export class SearchBoxComponent implements OnInit {
   @Input() defaultHint = '';
   @Input() query = '';
+  @Input() hints: string[] | null = [];
   @Output() search = new EventEmitter<{ query: string }>();
 
   // pretty suggestions
-  private popularTerms: string[] = [];
   placeholder$: Observable<string>;
 
-  constructor(private apiService: ApiService) { }
+  constructor() { }
 
   async ngOnInit(): Promise<void> {
-    this.popularTerms = await firstValueFrom(this.apiService.getPopularTerms());
-    
     this.placeholder$ = interval(5000).pipe(map(_ => {
-      if (this.popularTerms && this.popularTerms.length) {
-        return this.popularTerms[Math.floor(Math.random() * this.popularTerms.length)];
+      if (this.hints && this.hints.length) {
+        return this.hints[Math.floor(Math.random() * this.hints.length)];
       }
 
       return this.defaultHint;
