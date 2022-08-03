@@ -30,6 +30,10 @@ export class ApiService {
   }
 
   translate(queries: string[]): Observable<ITranslationResult> {
+    if (queries.length == 0) {
+      throw new Error("translate requires queries array of length 1 or more.")
+    }
+
     return this.http.post<ITranslationResult>(`${this.API_ROOT}/translate/all`, { text: queries });
   }
 }
