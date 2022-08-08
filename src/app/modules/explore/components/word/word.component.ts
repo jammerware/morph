@@ -1,24 +1,27 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { firstValueFrom, Observable } from 'rxjs';
+import { firstValueFrom, Subscription } from 'rxjs';
 import { IDecomposition } from 'src/app/models/decomposition';
 
 import { ApiService } from 'src/app/services/api.service';
+import { ErrorService } from 'src/app/services/error.service';
 import { TitleService } from 'src/app/modules/app-core/services/title.service';
-import { NgxKeyboardEventsService, NgxKey } from 'ngx-keyboard-events';
+import { NgxKeyboardEventsService, NgxKey, NgxKeyboardEvent } from 'ngx-keyboard-events';
 
 @Component({
   selector: 'app-word',
   templateUrl: './word.component.html',
   styleUrls: ['./word.component.scss']
 })
-export class WordComponent implements OnInit {
+export class WordComponent implements OnInit, OnDestroy {
   decomposition: IDecomposition;
   pinyin: string = '';
   word: string = '';
+  private keyboardSub: Subscription;
 
   constructor(
     private apiService: ApiService, 
+    private errorService: ErrorService,
     private keyboard: NgxKeyboardEventsService,
     private route: ActivatedRoute,
     private router: Router,
@@ -29,11 +32,17 @@ export class WordComponent implements OnInit {
       await this.loadWord(params['word'] || '');
     });
 
-    this.keyboard.onKeyPressed.subscribe(event => {
+    this.keyboardSub = this.keyboard.onKeyUp$.subscribe(event => {
       if(event.code == NgxKey.Backspace) {
         this.router.navigateByUrl('/');
       }
     });
+  }
+
+  ngOnDestroy() {
+    if (this.keyboardSub) {
+      this.keyboardSub.unsubscribe();
+    }
   }
 
   private async loadWord(word: string) {

@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const MAT_MODULES = [
   MatButtonModule,
@@ -18,7 +19,8 @@ const MAT_MODULES = [
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatSnackBarModule
 ]
 
 @NgModule({

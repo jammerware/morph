@@ -1,11 +1,10 @@
-import { Directive, ElementRef } from '@angular/core';
+import { AfterContentInit, Directive, ElementRef } from '@angular/core';
 
 @Directive({ selector: '[appAutofocus]' })
-export class AutofocusDirective {
+export class AutofocusDirective implements AfterContentInit {
 
   constructor(private host: ElementRef) { }
-
-  ngAfterViewInit() {
+  ngAfterContentInit(): void {
     this.host.nativeElement.focus();
   }
 }
