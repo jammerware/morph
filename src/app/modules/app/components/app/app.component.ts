@@ -1,7 +1,7 @@
 import { Component, ErrorHandler, Inject, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ErrorService } from './services/error.service';
-import { VersionService } from './services/version.service';
+import { ErrorService } from 'src/app/services/error.service';
+import { VersionService } from 'src/app/services/version.service';
 
 @Component({
   selector: 'app-root',

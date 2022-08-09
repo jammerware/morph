@@ -5,20 +5,23 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { CookieService } from 'ngx-cookie-service';
 
-import { AppMaterialModule } from './modules/app-material/app-material.module';
-import { AppRoutingModule } from './app-routing.module';
-import { AppCoreModule } from './modules/app-core/app-core.module';
-import { ExploreModule } from './modules/explore/explore.module';
-import { ErrorService } from './services/error.service';
-import { AppComponent } from './app.component';
+import { AppMaterialModule } from '../app-material/app-material.module';
+import { AppRoutingModule } from '../app-routing.module';
+import { AppCoreModule } from '../app-core/app-core.module';
+import { ExploreModule } from '../explore/explore.module';
+import { ErrorService } from '../../services/error.service';
+
+import { AppComponent } from './components/app/app.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   providers: [
     CookieService,
-    { provide: ErrorHandler, useClass: ErrorService}
+    { provide: ErrorHandler, useClass: ErrorService }
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
