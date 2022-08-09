@@ -1,1 +1,20 @@
-<p>error works!</p>
+<div class="error-component">
+    <h1>Oops</h1>
+
+    <p>
+        Morph encountered a problem of the "application crashing" variety. Sorry about that. If you have time, please
+        report the issue <a href="https://github.com/jammerware/morph/issues/new" target="_blank">here</a>  by telling us what 
+        you were doing when the error occurred and include a screenshot of this page.
+    </p>
+
+    <p><a [routerLink]="['/']">Head home and try again</a></p>
+
+    <div *ngIf="errorInfo">
+        <p *ngIf="errorInfo">
+            Here's some more information that may help the Top Nerds whose 
+            problem this is do their jobs better:
+        </p>
+
+        <p><code>{{errorInfo}}</code></p>
+    </div>
+</div>

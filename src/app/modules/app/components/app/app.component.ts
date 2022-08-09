@@ -1,5 +1,5 @@
-import { Component, ErrorHandler, Inject, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Component, ErrorHandler, Inject, NgZone, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ErrorService } from 'src/app/services/error.service';
 import { VersionService } from 'src/app/services/version.service';
 
@@ -13,14 +13,18 @@ export class AppComponent implements OnInit {
 
   constructor(
     @Inject(ErrorHandler) private errorService: ErrorService,
-    private snackbar: MatSnackBar,
-    private versionService: VersionService) { }
+    private router: Router,
+    private versionService: VersionService,
+    private zone: NgZone) { }
 
   ngOnInit() { 
     this.appVersion = this.versionService.get();
 
     this.errorService.onError.subscribe(error => {
-      this.snackbar.open(`Error: ${error}`, "OK");
+      // TODO: find out why zone is needed here
+      this.zone.run(() => {
+        this.router.navigateByUrl('error', { state: { lastError: error }});
+      });
     });
   }
 }
