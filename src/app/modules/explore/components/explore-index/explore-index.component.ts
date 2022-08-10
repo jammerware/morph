@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { ApiService } from 'src/app/services/api.service';
-import { TitleService } from 'src/app/modules/app-core/services/title.service';
 
 @Component({
   selector: 'app-explore-index',
@@ -15,11 +14,9 @@ export class ExploreIndexComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    private router: Router, 
-    private titleService: TitleService) { }
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.titleService.clear();
     this.recommendedSearchTerms = this.api.getRecommendedSearchTerms();
   }
 

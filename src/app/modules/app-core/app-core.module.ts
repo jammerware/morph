@@ -6,7 +6,6 @@ import { PaypalDonateComponent } from './components/paypal-donate/paypal-donate.
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AppMaterialModule } from '../app-material/app-material.module';
 import { WelcomeDialogComponent } from './components/welcome-dialog/welcome-dialog.component';
-import { TitleService } from './services/title.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +13,6 @@ import { TitleService } from './services/title.service';
     PaypalDonateComponent,
     WelcomeComponent,
     WelcomeDialogComponent,
-  ],
-  providers: [
-    TitleService,
   ],
   imports: [
     CommonModule,

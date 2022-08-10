@@ -5,11 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { CookieService } from 'ngx-cookie-service';
 
-import { AppMaterialModule } from '../app-material/app-material.module';
-import { AppRoutingModule } from '../app-routing.module';
-import { AppCoreModule } from '../app-core/app-core.module';
-import { ExploreModule } from '../explore/explore.module';
-import { ErrorService } from '../../services/error.service';
+import { AppMaterialModule } from 'src/app/modules/app-material/app-material.module';
+import { AppRoutingModule } from 'src/app/modules/app-routing/app-routing.module';
+import { AppCoreModule } from 'src/app/modules/app-core/app-core.module';
+import { ExploreModule } from 'src/app/modules/explore/explore.module';
+import { ErrorService } from 'src/app/services/error.service';
 
 import { AppComponent } from './components/app/app.component';
 import { ErrorComponent } from './components/error/error.component';

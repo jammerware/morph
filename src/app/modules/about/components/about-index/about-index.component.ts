@@ -1,16 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { TitleService } from 'src/app/modules/app-core/services/title.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-about-index',
   templateUrl: './about-index.component.html',
   styleUrls: ['./about-index.component.less']
 })
-export class AboutIndexComponent implements OnInit {
+export class AboutIndexComponent {
 
-  constructor(private title: TitleService) { }
-
-  ngOnInit(): void {
-    this.title.set("About");
-  }
 }

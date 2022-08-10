@@ -4,8 +4,6 @@ import { firstValueFrom, Subscription } from 'rxjs';
 import { IDecomposition } from 'src/app/models/decomposition';
 
 import { ApiService } from 'src/app/services/api.service';
-import { ErrorService } from 'src/app/services/error.service';
-import { TitleService } from 'src/app/modules/app-core/services/title.service';
 import { NgxKeyboardEventsService, NgxKey, NgxKeyboardEvent } from 'ngx-keyboard-events';
 
 @Component({
@@ -21,11 +19,9 @@ export class WordComponent implements OnInit, OnDestroy {
 
   constructor(
     private apiService: ApiService, 
-    private errorService: ErrorService,
     private keyboard: NgxKeyboardEventsService,
     private route: ActivatedRoute,
-    private router: Router,
-    private title: TitleService) { }
+    private router: Router) { }
 
   async ngOnInit(): Promise<void> {
     this.route.params.subscribe(async params => {
@@ -49,6 +45,6 @@ export class WordComponent implements OnInit, OnDestroy {
     this.word = word;
     this.decomposition = await firstValueFrom(this.apiService.getDecomposition(word));
     this.pinyin = this.decomposition.characters.map(c => c.pinyin).join(' ');
-    this.title.set(`${this.decomposition.word.l1} (${this.decomposition.word.translation})`);
+    // this.title.set(`${this.decomposition.word.l1} (${this.decomposition.word.translation})`);
   }
 }
