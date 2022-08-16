@@ -18,14 +18,27 @@
     text-align: center;
     padding: 0 4rem;
 
+    @media only screen and (max-width: 600px) {
+        padding: 0 2rem;
+    }
+
     .character-pinyin {
         font-size: 2rem;
+
+        @media only screen and (max-width: 600px) {
+            font-size: 1.4rem;
+        }
     }
 }
 
 .big-character {
     font-size: 8rem;
     line-height: 8.2rem;
+
+    @media only screen and (max-width: 600px) {
+        font-size: 4rem;
+        line-height: 4rem;
+    }
 }
 
 .fact-list {
