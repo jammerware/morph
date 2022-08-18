@@ -4,7 +4,7 @@
     <div class="flex-spacer height-spacer"></div>
     <div class="app-title-wrap">
       <a [routerLink]="['/']" class="app-title app-logo-font">Morph</a>
-      <a [routerLink]="['/about']" class="alpha-note">[ alpha ]</a>
+      <a [routerLink]="['/about']" class="alpha-note">[ <strong>alpha</strong> {{appVersion}} ]</a>
     </div>
     <div class="content-wrap mat-app-background">
       <main>
@@ -12,10 +12,9 @@
       </main>
     </div>
     <footer>
-      <div class="version">
+      <!-- <div class="version">
         v<span class="version-number">{{appVersion}}</span>
-      </div>
-      <div class="version-bar">|</div>
+      </div> -->
       <div class="background-image-note">
         Background photo by <a href="https://www.pexels.com/photo/calm-body-of-lake-between-mountains-346529/" target="_blank">Bri Schneiter</a>.
       </div>
