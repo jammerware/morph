@@ -44,7 +44,7 @@ export class WordComponent implements OnInit, OnDestroy {
   private async loadWord(word: string) {
     this.word = word;
     this.decomposition = await firstValueFrom(this.apiService.getDecomposition(word));
-    // this.pinyin = (this.decomposition.word.pinyin || this.decomposition.characters.map(c => c.pinyin).join(' '));
-    this.pinyin = this.decomposition.characters.map(c => c.pinyin).join(' ');
+    this.pinyin = (this.decomposition.word.pinyin || this.decomposition.characters.map(c => c.pinyin).join(' '));
+    // this.pinyin = this.decomposition.characters.map(c => c.pinyin).join(' ');
   }
 }
