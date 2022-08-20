@@ -7,7 +7,7 @@ import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
-  styleUrls: ['./character.component.less']
+  styleUrls: ['./character.component.scss']
 })
 export class CharacterComponent implements OnInit {
   character$: Observable<ICharacterDecomposition>;

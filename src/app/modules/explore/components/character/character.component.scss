@@ -1,3 +1,5 @@
+@import 'src/theme/globals';
+
 .character-component {
     margin: 2rem 0;
 
@@ -18,14 +20,14 @@
     text-align: center;
     padding: 0 4rem;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: $mobile-breakpoint) {
         padding: 0 2rem;
     }
 
     .character-pinyin {
         font-size: 2rem;
 
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: $mobile-breakpoint) {
             font-size: 1.4rem;
         }
     }
@@ -35,7 +37,7 @@
     font-size: 8rem;
     line-height: 8.2rem;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: $mobile-breakpoint) {
         font-size: 4rem;
         line-height: 4rem;
     }
