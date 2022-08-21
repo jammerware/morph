@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ICharacterDecomposition } from 'src/app/models/character-decomposition';
+import { FreqRankService } from 'src/app/modules/explore/services/freq-rank.service';
 
 @Component({
   selector: 'app-character-card',
@@ -10,25 +11,13 @@ export class CharacterCardComponent implements OnInit {
   @Input() decomposition: ICharacterDecomposition;
   numberSuffix = "th";
 
+  constructor(private freqRank: FreqRankService) { }
+
   ngOnInit(): void {
-    this.setNumberSuffix(this.decomposition.freqRank);
+    this.numberSuffix = this.freqRank.getFreqRankSuffix(this.decomposition.freqRank);
   }
 
   getCharacterLink(character: string) {
     return `/character/${character}`;
-  }
-
-  private setNumberSuffix(freqRank: number) {
-    const lastFreqNumeral = freqRank.toString().slice(-1);
-
-    if (lastFreqNumeral == "1") {
-      this.numberSuffix = "st";
-    }
-    else if (lastFreqNumeral == "2") {
-      this.numberSuffix = "nd";
-    }
-    else if (lastFreqNumeral == "3") {
-      this.numberSuffix = "rd";
-    }
   }
 }

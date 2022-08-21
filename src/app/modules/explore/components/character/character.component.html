@@ -7,7 +7,7 @@
         <div class="other-info flex-child">
             <ul class="fact-list">
                 <li>
-                    <h1 class="fact-header">Definitions</h1>
+                    <h1 class="fact-header">Meanings</h1>
                     <div>
                         <ul class="flex-list">
                             <li *ngFor="let definition of characterData.definitions">{{definition}}</li>
@@ -17,28 +17,41 @@
 
                 <li *ngIf="characterData.commonWords?.length">
                     <h1 class="fact-header">Common words</h1>
-                    <div>
+                    <div class="fact-data">
                         <app-character-common-words [words]="characterData.commonWords" ></app-character-common-words>
                     </div>
                 </li>
 
                 <li *ngIf="characterData.semanticRadical as semanticRadical">
                     <h1 class="fact-header">Semantic radical</h1>
-                    <div class="semantic-radical">
-                        {{semanticRadical.variant || semanticRadical.radical }} 
+                    <div class="semantic-radical fact-data">
+                        {{semanticRadical.variant || semanticRadical.radical}} 
                         <span *ngIf="semanticRadical.variant">/ {{semanticRadical.radical}}</span>
-                        &nbsp;
-                        <span *ngIf="semanticRadical.translation">({{semanticRadical.translation}})</span>
+                        <span *ngIf="semanticRadical.pinyin && semanticRadical.translation">(</span>
+                        <span *ngIf="semanticRadical.pinyin">{{semanticRadical.pinyin}}</span>
+                        <span *ngIf="semanticRadical.translation">, <em>{{semanticRadical.translation}}</em></span>
+                        <span *ngIf="semanticRadical.pinyin && semanticRadical.translation">)</span>
                     </div>
+                </li>
+
+                <li>
+                    <h1 class="fact-header">Stroke count</h1>
+                    <div class="fact-data">{{characterData.strokeCount}}</div>
+                </li>
+
+                <li>
+                    <h1 class="fact-header">Frequency</h1>
+                    <!--This is not ideal because it calls the method every time the template renders, but I'm too lazy to subscribe/unsubscribe -->
+                    <div class="fact-data">{{characterData.freqRank}}{{getFreqRank(characterData.freqRank)}}</div>
                 </li>
 
                 <li *ngIf="!characterData.isUnbound">
                     <h1 class="fact-header">Special characteristics</h1>
                     <div>
-
                         Most characters in Chinese can represent a word by themselves, but 
-                        <strong>{{characterData.character}}</strong> can't (even though they still contribute meaning
-                        to the words they're in). Characters like this are called "bound" characters.
+                        <strong>{{characterData.character}}</strong> can't (even though it does contribute
+                        one of its meanings above to the words it appears in). 
+                        Characters like this are called <em>bound</em> characters.
                     </div>
                 </li>
             </ul>
