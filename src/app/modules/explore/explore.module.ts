@@ -6,6 +6,7 @@ import { NgxKeyboardEventsModule } from 'ngx-keyboard-events';
 
 import { AppCoreModule } from '../app-core/app-core.module';
 import { AppMaterialModule } from '../app-material/app-material.module';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 import { ExploreIndexComponent } from './components/explore-index/explore-index.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
@@ -29,6 +30,7 @@ import { CharacterCommonWordsComponent } from './components/character-common-wor
     CommonModule,
     FormsModule,
     RouterModule,
+    ClipboardModule,
     NgxKeyboardEventsModule,
     AppCoreModule,
     AppMaterialModule

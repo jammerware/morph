@@ -25,7 +25,7 @@
                 <li *ngIf="characterData.semanticRadical as semanticRadical">
                     <h1 class="fact-header">Semantic radical</h1>
                     <div class="semantic-radical fact-data">
-                        {{semanticRadical.variant || semanticRadical.radical}} 
+                        <strong>{{semanticRadical.variant || semanticRadical.radical}} </strong>
                         <span *ngIf="semanticRadical.variant">/ {{semanticRadical.radical}}</span>
                         <span *ngIf="semanticRadical.pinyin && semanticRadical.translation">(</span>
                         <span *ngIf="semanticRadical.pinyin">{{semanticRadical.pinyin}}</span>

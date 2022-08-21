@@ -5,6 +5,7 @@ import { IDecomposition } from 'src/app/models/decomposition';
 
 import { ApiService } from 'src/app/services/api.service';
 import { NgxKeyboardEventsService, NgxKey, NgxKeyboardEvent } from 'ngx-keyboard-events';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-word',
@@ -21,18 +22,23 @@ export class WordComponent implements OnInit, OnDestroy {
     private apiService: ApiService, 
     private keyboard: NgxKeyboardEventsService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private snackbar: MatSnackBar) { }
 
   async ngOnInit(): Promise<void> {
     this.route.params.subscribe(async params => {
       await this.loadWord(params['word'] || '');
     });
 
-    this.keyboardSub = this.keyboard.onKeyUp$.subscribe(event => {
-      if(event.code == NgxKey.Backspace) {
-        this.router.navigateByUrl('/');
-      }
-    });
+    // this is gross, but without it, the screen immediately navigates to search
+    // if the search from the box component is invoked with the enter key
+    setTimeout(() => {
+      this.keyboardSub = this.keyboard.onKeyUp$.subscribe(event => {
+        if(event.code == NgxKey.Return) {
+          this.router.navigateByUrl('/');
+        }
+      });
+    }, 1000);
   }
 
   ngOnDestroy() {
@@ -41,10 +47,17 @@ export class WordComponent implements OnInit, OnDestroy {
     }
   }
 
+  copyCharacters() {
+    this.snackbar.open(`Copied "${this.decomposition.word.translation}" to clipboard.`, 'OK');
+  }
+
+  copyPinyin() {
+    this.snackbar.open(`Copied "${this.pinyin}" to clipboard.`, 'OK');
+  }
+
   private async loadWord(word: string) {
     this.word = word;
     this.decomposition = await firstValueFrom(this.apiService.getDecomposition(word));
     this.pinyin = (this.decomposition.word.pinyin || this.decomposition.characters.map(c => c.pinyin).join(' '));
-    // this.pinyin = this.decomposition.characters.map(c => c.pinyin).join(' ');
   }
 }

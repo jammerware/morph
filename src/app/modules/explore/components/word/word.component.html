@@ -12,8 +12,8 @@
 
     <div class="content" *ngIf="decomposition">
         <div class="header-wrap">
-            <button mat-icon-button [routerLink]="['/']">
-                <mat-icon>arrow_back</mat-icon>
+            <button mat-icon-button class="search-button" [routerLink]="['/']">
+                <mat-icon class="search-icon">search</mat-icon>
             </button>
             <h2 class="page-title">
                 <div class="word">{{decomposition.word.l1 | lowercase}}</div>
@@ -23,6 +23,19 @@
         <mat-divider></mat-divider>
         <div *ngIf="decomposition" class="character-decompositions">
             <app-character-card *ngFor="let character of decomposition.characters" [decomposition]="character"></app-character-card>
+        </div>
+        <mat-divider class="button-divider"></mat-divider>
+        <div class="button-wrap">
+            <button mat-icon-button matTooltip="Copy Pinyin" matTooltipPosition="above" 
+                color="primary" aria-label="Copy Pinyin button" (click)="copyPinyin()" 
+                [cdkCopyToClipboard]="pinyin">
+                <mat-icon>font_download</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Copy characters" matTooltipPosition="above" 
+                color="primary" aria-label="Copy characters button" (click)="copyCharacters()"
+                [cdkCopyToClipboard]="decomposition.word.translation">
+                <mat-icon>content_copy</mat-icon>
+            </button>
         </div>
     </div>
 </div>

@@ -32,9 +32,7 @@ export class SearchBoxComponent implements OnInit {
   }
 
   raise() {
-    this.search.emit({
-      query: this.query
-    });
+    this.search.emit({ query: this.query });
   }
 
   formSubmit($event: Event) {
