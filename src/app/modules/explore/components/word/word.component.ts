@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { firstValueFrom, Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { IDecomposition } from 'src/app/models/decomposition';
 
 import { ApiService } from 'src/app/services/api.service';
@@ -13,7 +13,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./word.component.scss']
 })
 export class WordComponent implements OnInit, OnDestroy {
-  decomposition: IDecomposition;
+  decomposition$: Observable<IDecomposition>;
+  decompSub: Subscription;
   pinyin: string = '';
   word: string = '';
   private keyboardSub: Subscription;
@@ -27,7 +28,12 @@ export class WordComponent implements OnInit, OnDestroy {
 
   async ngOnInit(): Promise<void> {
     this.route.params.subscribe(async params => {
-      await this.loadWord(params['word'] || '');
+      this.word = params['word'];
+      this.decomposition$ = this.apiService.getDecomposition(this.word);
+    });
+
+    this.decompSub = this.decomposition$.subscribe(decomp => {
+      this.pinyin = decomp.word.pinyin || decomp.characters.map(c => c.pinyin).join(' ');
     });
 
     // this is gross, but without it, the screen immediately navigates to search
@@ -45,19 +51,15 @@ export class WordComponent implements OnInit, OnDestroy {
     if (this.keyboardSub) {
       this.keyboardSub.unsubscribe();
     }
+
+    if (this.decompSub) {
+      this.decompSub.unsubscribe();
+    }
   }
 
-  copyCharacters() {
-    this.snackbar.open(`Copied "${this.decomposition.word.translation}" to clipboard.`, 'OK');
-  }
-
-  copyPinyin() {
-    this.snackbar.open(`Copied "${this.pinyin}" to clipboard.`, 'OK');
-  }
-
-  private async loadWord(word: string) {
-    this.word = word;
-    this.decomposition = await firstValueFrom(this.apiService.getDecomposition(word));
-    this.pinyin = (this.decomposition.word.pinyin || this.decomposition.characters.map(c => c.pinyin).join(' '));
+  showCopySnackbar(copiedText: string) {
+    this.snackbar.open(`Copied "${copiedText}" to clipboard.`, 'OK', {
+      duration: 1000
+    });
   }
 }

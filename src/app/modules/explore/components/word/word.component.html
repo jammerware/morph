@@ -1,6 +1,6 @@
 <div class="word-component">
-    <div class="loading" *ngIf="!decomposition">
-        <mat-progress-bar *ngIf="!decomposition" mode="indeterminate" color="accent"></mat-progress-bar>
+    <div class="loading" *ngIf="!(decomposition$ | async)">
+        <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
         <p>Looking up <strong>{{word}}</strong>...</p>
         <p class="heroku-note">
             Don't worry if this takes awhile. Morph is (gratefully) hosted on free servers at
@@ -10,7 +10,7 @@
         </p>
     </div>
 
-    <div class="content" *ngIf="decomposition">
+    <ng-template #loaded *ngIf="decomposition$ | async as decomposition">
         <div class="header-wrap">
             <button mat-icon-button class="search-button" [routerLink]="['/']">
                 <mat-icon class="search-icon">search</mat-icon>
@@ -27,15 +27,15 @@
         <mat-divider class="button-divider"></mat-divider>
         <div class="button-wrap">
             <button mat-icon-button matTooltip="Copy Pinyin" matTooltipPosition="above" 
-                color="primary" aria-label="Copy Pinyin button" (click)="copyPinyin()" 
+                color="primary" aria-label="Copy Pinyin button" (click)="showCopySnackbar(pinyin)" 
                 [cdkCopyToClipboard]="pinyin">
                 <mat-icon>font_download</mat-icon>
             </button>
             <button mat-icon-button matTooltip="Copy characters" matTooltipPosition="above" 
-                color="primary" aria-label="Copy characters button" (click)="copyCharacters()"
+                color="primary" aria-label="Copy characters button" (click)="showCopySnackbar(pinyin)"
                 [cdkCopyToClipboard]="decomposition.word.translation">
                 <mat-icon>content_copy</mat-icon>
             </button>
         </div>
-    </div>
+    </ng-template>
 </div>
