@@ -10,7 +10,7 @@
         </p>
     </div>
 
-    <ng-template #loaded *ngIf="decomposition$ | async as decomposition">
+    <div *ngIf="decomposition$ | async as decomposition">
         <div class="header-wrap">
             <button mat-icon-button class="search-button" [routerLink]="['/']">
                 <mat-icon class="search-icon">search</mat-icon>
@@ -37,5 +37,5 @@
                 <mat-icon>content_copy</mat-icon>
             </button>
         </div>
-    </ng-template>
+    </div>
 </div>
