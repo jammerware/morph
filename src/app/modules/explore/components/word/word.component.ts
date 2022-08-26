@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { IDecomposition } from 'src/app/models/decomposition';
@@ -6,6 +6,7 @@ import { IDecomposition } from 'src/app/models/decomposition';
 import { ApiService } from 'src/app/services/api.service';
 import { NgxKeyboardEventsService, NgxKey, NgxKeyboardEvent } from 'ngx-keyboard-events';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-word',
@@ -20,6 +21,7 @@ export class WordComponent implements OnInit, OnDestroy {
   private keyboardSub: Subscription;
 
   constructor(
+    @Inject(DOCUMENT) private document: Document,
     private apiService: ApiService, 
     private keyboard: NgxKeyboardEventsService,
     private route: ActivatedRoute,
@@ -61,5 +63,9 @@ export class WordComponent implements OnInit, OnDestroy {
     this.snackbar.open(`Copied "${copiedText}" to clipboard.`, 'OK', {
       duration: 1000
     });
+  }
+
+  toGoogleTranslate(text: string) {
+    this.document.defaultView?.open(`https://translate.google.com/?sl=en&tl=zh-CN&text=${encodeURIComponent(text)}&op=translate`);
   }
 }

@@ -26,6 +26,10 @@
         </div>
         <mat-divider class="button-divider"></mat-divider>
         <div class="button-wrap">
+            <button mat-icon-button matTooltip="Look up on Google Translate" matTooltipPosition="above" 
+                color="primary" aria-label="Translate on Google Translate" (click)="toGoogleTranslate(decomposition.word.l1)">
+                <mat-icon>g_translate</mat-icon>
+            </button>
             <button mat-icon-button matTooltip="Copy Pinyin" matTooltipPosition="above" 
                 color="primary" aria-label="Copy Pinyin button" (click)="showCopySnackbar(pinyin)" 
                 [cdkCopyToClipboard]="pinyin">
