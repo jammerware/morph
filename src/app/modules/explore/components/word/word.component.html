@@ -36,7 +36,7 @@
                 <mat-icon>font_download</mat-icon>
             </button>
             <button mat-icon-button matTooltip="Copy characters" matTooltipPosition="above" 
-                color="primary" aria-label="Copy characters button" (click)="showCopySnackbar(pinyin)"
+                color="primary" aria-label="Copy characters button" (click)="showCopySnackbar(decomposition.word.translation)"
                 [cdkCopyToClipboard]="decomposition.word.translation">
                 <mat-icon>content_copy</mat-icon>
             </button>

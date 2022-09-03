@@ -61,7 +61,7 @@ export class WordComponent implements OnInit, OnDestroy {
 
   showCopySnackbar(copiedText: string) {
     this.snackbar.open(`Copied "${copiedText}" to clipboard.`, 'OK', {
-      duration: 1000
+      duration: 200
     });
   }
 
