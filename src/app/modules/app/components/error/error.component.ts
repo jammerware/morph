@@ -13,7 +13,5 @@ export class ErrorComponent implements OnInit {
 
   ngOnInit(): void {
     this.errorInfo = this.errorsService.lastError;
-    console.log('found in error component:', this.errorsService.lastError);
   }
-
 }
