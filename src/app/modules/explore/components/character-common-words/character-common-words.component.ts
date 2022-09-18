@@ -19,5 +19,4 @@ export class CharacterCommonWordsComponent implements OnInit {
       this.words$ = this.apiService.translate(this.words.map(w => w.word))
     }
   }
-
 }
