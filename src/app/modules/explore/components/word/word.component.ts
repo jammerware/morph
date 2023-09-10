@@ -5,7 +5,7 @@ import { IDecomposition } from 'src/app/models/decomposition';
 
 import { ApiService } from 'src/app/services/api.service';
 import { NgxKeyboardEventsService, NgxKey, NgxKeyboardEvent } from 'ngx-keyboard-events';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
