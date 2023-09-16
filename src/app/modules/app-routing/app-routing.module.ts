@@ -1,5 +1,5 @@
 import { Injectable, NgModule } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterModule, RouterStateSnapshot, Routes, TitleStrategy } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterModule, RouterStateSnapshot, Routes, TitleStrategy } from '@angular/router';
 
 import { AppTitleStrategy } from './app-title-strategy';
 import { AboutIndexComponent } from 'src/app/modules/about/components/about-index/about-index.component';
@@ -10,14 +10,14 @@ import { WordComponent } from 'src/app/modules/explore/components/word/word.comp
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root'})
-export class ResolvedWordTitle implements Resolve<string> {
+export class ResolvedWordTitle  {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): string | Observable<string> | Promise<string> {
     return `"${route.paramMap.get('word')}"` || 'Word';
   }
 }
 
 @Injectable({ providedIn: 'root'})
-export class ResolvedCharacterTitle implements Resolve<string> {
+export class ResolvedCharacterTitle  {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): string | Observable<string> | Promise<string> {
     return `"${route.paramMap.get('character')}"` || 'Character';
   }

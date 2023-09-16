@@ -1,45 +1,43 @@
 <div class="word-component">
-    <div class="loading" *ngIf="!(decomposition$ | async)">
-        <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
-        <p>Looking up <strong>{{word}}</strong>...</p>
-        <p class="heroku-note">
-            Don't worry if this takes awhile. Morph is (gratefully) hosted on free servers at
-            <a href="https://heroku.com" target="_blank" class="text-link">Heroku</a>. The downside of this is that the app goes
-            to sleep if it isn't used for awhile, so it takes it a bit to wake up. If you look up more words in the next
-            15 minutes or so, Morph will be much faster 👍🏻
-        </p>
-    </div>
+  <div class="loading" *ngIf="!(decomposition$ | async)">
+    <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+    <p>Looking up <strong>{{word}}</strong>...</p>
+    <p class="heroku-note">
+      Don't worry if this takes awhile. Morph is hosted on inexpensive servers which may go to sleep if unused for a
+      bit. If you look up more words in the next 30 minutes or so, Morph will be much faster 👍🏻
+    </p>
+  </div>
 
-    <div *ngIf="decomposition$ | async as decomposition">
-        <div class="header-wrap">
-            <button mat-icon-button class="search-button" color="primary" [routerLink]="['/']">
-                <mat-icon class="search-icon">search</mat-icon>
-            </button>
-            <h2 class="page-title">
-                <div class="word">{{decomposition.word.l1 | lowercase}}</div>
-                <div class="pinyin">({{pinyin}})</div>
-            </h2>
-        </div>
-        <mat-divider></mat-divider>
-        <div *ngIf="decomposition" class="character-decompositions">
-            <app-character-card *ngFor="let character of decomposition.characters" [decomposition]="character"></app-character-card>
-        </div>
-        <mat-divider class="button-divider"></mat-divider>
-        <div class="button-wrap">
-            <button mat-icon-button matTooltip="Look up on Google Translate" matTooltipPosition="above" 
-                color="primary" aria-label="Translate on Google Translate" (click)="toGoogleTranslate(decomposition.word.l1)">
-                <mat-icon>g_translate</mat-icon>
-            </button>
-            <button mat-icon-button matTooltip="Copy Pinyin" matTooltipPosition="above" 
-                color="primary" aria-label="Copy Pinyin button" (click)="showCopySnackbar(pinyin)" 
-                [cdkCopyToClipboard]="pinyin">
-                <mat-icon>font_download</mat-icon>
-            </button>
-            <button mat-icon-button matTooltip="Copy characters" matTooltipPosition="above" 
-                color="primary" aria-label="Copy characters button" (click)="showCopySnackbar(decomposition.word.translation)"
-                [cdkCopyToClipboard]="decomposition.word.translation">
-                <mat-icon>content_copy</mat-icon>
-            </button>
-        </div>
+  <div *ngIf="decomposition$ | async as decomposition">
+    <div class="header-wrap">
+      <button mat-icon-button class="search-button" color="primary" [routerLink]="['/']">
+        <mat-icon class="search-icon">search</mat-icon>
+      </button>
+      <h2 class="page-title">
+        <div class="word">{{decomposition.word.l1 | lowercase}}</div>
+        <div class="pinyin">({{pinyin}})</div>
+      </h2>
     </div>
+    <mat-divider></mat-divider>
+    <div *ngIf="decomposition" class="character-decompositions">
+      <app-character-card *ngFor="let character of decomposition.characters"
+        [decomposition]="character"></app-character-card>
+    </div>
+    <mat-divider class="button-divider"></mat-divider>
+    <div class="button-wrap">
+      <button mat-icon-button matTooltip="Look up on Google Translate" matTooltipPosition="above" color="primary"
+        aria-label="Translate on Google Translate" (click)="toGoogleTranslate(decomposition.word.l1)">
+        <mat-icon>g_translate</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="Copy Pinyin" matTooltipPosition="above" color="primary"
+        aria-label="Copy Pinyin button" (click)="showCopySnackbar(pinyin)" [cdkCopyToClipboard]="pinyin">
+        <mat-icon>font_download</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="Copy characters" matTooltipPosition="above" color="primary"
+        aria-label="Copy characters button" (click)="showCopySnackbar(decomposition.word.translation)"
+        [cdkCopyToClipboard]="decomposition.word.translation">
+        <mat-icon>content_copy</mat-icon>
+      </button>
+    </div>
+  </div>
 </div>

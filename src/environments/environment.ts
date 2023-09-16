@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  apiRoot: "https://morph-chinese.herokuapp.com",
   production: false,
 };
 

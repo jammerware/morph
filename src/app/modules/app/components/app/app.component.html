@@ -1,28 +1,40 @@
-<div class="app-component horizontal-layout">
-  <div class="flex-spacer"></div>
-  <div class="app-wrap vertical-layout">
-    <div class="flex-spacer height-spacer"></div>
-    <div class="app-title-wrap">
-      <a [routerLink]="['/']" class="app-title app-logo-font">Morph</a>
-      <a [routerLink]="['/about']" class="alpha-note">[ <strong>alpha</strong> {{appVersion}} ]</a>
-    </div>
-    <div class="content-wrap mat-app-background">
-      <main>
-        <router-outlet></router-outlet>
-      </main>
-    </div>
-    <footer>
-      <div class="background-image-note">
-        Photo by <a href="https://www.pexels.com/photo/calm-body-of-lake-between-mountains-346529/" target="_blank">Bri Schneiter</a>.
+<mat-sidenav-container class="app-sidenav">
+  <mat-sidenav #sidenav mode="push">
+    <app-sidebar-content></app-sidebar-content>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="app-component horizontal-layout">
+      <div class="flex-spacer">
+        <button class="sidenav-button" mat-icon-button aria-label="menu" (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div class="app-wrap vertical-layout">
+        <div class="flex-spacer height-spacer"></div>
+        <div class="app-title-wrap">
+          <a [routerLink]="['/']" class="app-title app-logo-font">Morph</a>
+          <a [routerLink]="['/about']" class="alpha-note">[ <strong>alpha</strong> {{appVersion}} ]</a>
+        </div>
+        <div class="content-wrap mat-app-background">
+          <main>
+            <router-outlet></router-outlet>
+          </main>
+        </div>
+        <footer>
+          <div class="background-image-note">
+            Photo by
+            <a href="https://www.pexels.com/photo/calm-body-of-lake-between-mountains-346529/" target="_blank">Bri
+              Schneiter</a>.
+          </div>
+          <div class="flex-spacer"></div>
+          <div>
+            Bug/idea? Submit
+            <a href="https://github.com/jammerware/morph/issues/new" target="_blank">here</a>.
+          </div>
+        </footer>
+        <div class="flex-spacer height-spacer"></div>
       </div>
       <div class="flex-spacer"></div>
-      <!-- <app-paypal-donate></app-paypal-donate> -->
-      <div>
-        Bug/idea? Submit
-        <a href="https://github.com/jammerware/morph/issues/new" target="_blank">here</a>.
-      </div>
-    </footer>
-    <div class="flex-spacer height-spacer"></div>
-  </div>
-  <div class="flex-spacer"></div>
-</div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

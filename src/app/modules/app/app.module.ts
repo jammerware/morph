@@ -13,6 +13,7 @@ import { ErrorService } from 'src/app/services/error.service';
 
 import { AppComponent } from './components/app/app.component';
 import { ErrorComponent } from './components/error/error.component';
+import { SidebarContentComponent } from './components/sidebar-content/sidebar-content.component';
 
 @NgModule({
   providers: [
@@ -21,7 +22,8 @@ import { ErrorComponent } from './components/error/error.component';
   ],
   declarations: [
     AppComponent,
-    ErrorComponent
+    ErrorComponent,
+    SidebarContentComponent
   ],
   imports: [
     BrowserModule,

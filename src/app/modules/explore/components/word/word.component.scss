@@ -2,94 +2,90 @@
 @import 'src/theme/globals';
 
 .heroku-note a {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .loading {
+  padding: 1rem 0 0 0;
+
+  p {
     padding: 1rem 0 0 0;
+    text-align: center;
+  }
 
-    p {
-        padding: 1rem 0 0 0;
-        text-align: center;
-    }
-
-    .heroku-note {
-        font-style: italic;
-    }
+  .heroku-note {
+    font-style: italic;
+  }
 }
 
 .header-wrap {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    .pinyin {
-        // i need to figure out how to access mat functions without accidentally bloating/duplicating.
-        // this threw an over-budget error, so i have to manually get the shade from the map instead
-        // color: mat.get-color-from-palette($primary, 200);
-        color: map.get($primary-palette-def, 200);
-        font-weight: normal;
-    }
+  .pinyin {
+    // i need to figure out how to access mat functions without accidentally bloating/duplicating.
+    // this threw an over-budget error, so i have to manually get the shade from the map instead
+    // color: mat.get-color-from-palette($primary, 200);
+    color: map.get($primary-palette-def, 200);
+    font-weight: normal;
+  }
 
-    @media only screen and (min-width: $mobile-breakpoint) {
-        margin: 2rem 0;
+  @media only screen and (min-width: $mobile-breakpoint) {
+    .page-title {
+      display: flex;
+      flex-wrap: wrap;
 
-        .page-title {
-            display: flex;
-            flex-wrap: wrap;
-    
-            .pinyin {
-                margin-left: 1.2rem;
-            }
-        }
-    }
-
-    @media only screen and(max-width: $mobile-breakpoint) {
-        margin: 1.5rem 0 1rem 0;
-
-        .page-title {
-            display: block;
-            
-            .pinyin {
-                font-size: 2rem;
-                line-height: 3.5rem;
-            }
-        }
-    }
-}
-
-.search-button {
-    margin-right: 1rem;
-    width: 48px;
-    height: 48px;
-    line-height: 48px;
-
-    .search-icon {
-      font-size: 36px;
-      width: 36px;
-      height: 36px;
-      line-height: 36px;
+      .pinyin {
+        margin-left: 1.2rem;
+      }
     }
   }
 
-.character-decompositions {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 1rem 0 1.5rem;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    margin: 1.5rem 0 1rem 0;
 
-    app-character-card {
-        display: block;
-        flex-grow: 1;
+    .page-title {
+      .pinyin {
+        font-size: 2rem;
+        line-height: 3.5rem;
+      }
     }
+  }
+}
+
+.search-button {
+  margin-right: 1rem;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+
+  .search-icon {
+    font-size: 36px;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+  }
+}
+
+.character-decompositions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 1rem 0 1.5rem;
+
+  app-character-card {
+    display: block;
+    flex-grow: 1;
+  }
 }
 
 .button-divider {
-    margin: 1rem 0;
+  margin: 1rem 0;
 }
 
 .button-wrap {
-    display: flex;
-    padding-bottom: 1rem;
-    justify-content: flex-end;
+  display: flex;
+  padding-bottom: 1rem;
+  justify-content: flex-end;
 }

@@ -1,0 +1,6 @@
+<div class="sidebar-content-component">
+  <mat-slide-toggle [checked]="(settings$ | async)?.isExperimentMode || false"
+    (change)="handleExperimentModeChange($event)">
+    Experiment Mode
+  </mat-slide-toggle>
+</div>

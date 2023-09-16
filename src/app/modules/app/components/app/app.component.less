@@ -1,69 +1,84 @@
+::ng-deep {
+  mat-sidenav-content {
+    background: url('../../../../../assets/pexels-bri-schneiter-346529.jpg') center content-box content-box fixed;
+  }
+}
+
 .app-component {
-    height: 99%;
+  height: 100vh;
+}
+
+.app-logo-font {
+  font-family: 'Passion One', Roboto, sans-serif;
+  text-transform: lowercase;
+}
+
+.sidenav-button {
+  color: #dedede;
 }
 
 .horizontal-layout {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .vertical-layout {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .height-spacer {
-    min-height: 3rem;
+  min-height: 3rem;
 }
 
 .app-wrap {
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 1rem;
+  max-width: 1000px;
+  width: 100vw;
+  margin: 0 1rem;
 }
 
 .app-title-wrap {
-    color: #eeeeee;
-    margin-bottom: 6px;
+  color: #eeeeee;
+  margin-bottom: 6px;
 
-    .app-title {
-        font-size: 4rem;
-        height: 3rem;
-        text-transform: lowercase;
-        text-decoration: none;
-    }
-    
-    .alpha-note {
-        font-weight: lighter;
-        margin-left: 4px;
-        text-transform: uppercase;
-    }
+  .app-title {
+    font-size: 4rem;
+    height: 3rem;
+    text-transform: lowercase;
+    text-decoration: none;
+  }
+
+  .alpha-note {
+    font-weight: lighter;
+    margin-left: 4px;
+    text-transform: uppercase;
+  }
 }
 
 .content-wrap {
-    border-radius: 4px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem 1rem;
-    width: 100%;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  width: 100%;
 }
 
 main {
-    display: block;
-    flex-grow: 1;
-    width: 100%;
+  display: block;
+  flex-grow: 1;
+  width: 100%;
 }
 
 footer {
-    color: #eeeeee;
-    display: flex;
-    padding: 0.5rem 0 0 0;
-    width: 100%;
+  color: #eeeeee;
+  display: flex;
+  padding: 0.5rem 0 0 0;
+  width: 100%;
 
-    a {
-        font-weight: bold;
-        color: #eeeeee;
-        text-decoration: underline;
-    }
+  a {
+    font-weight: bold;
+    color: #eeeeee;
+    text-decoration: underline;
+  }
 }

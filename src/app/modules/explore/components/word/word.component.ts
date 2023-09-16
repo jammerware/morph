@@ -5,7 +5,7 @@ import { IDecomposition } from 'src/app/models/decomposition';
 
 import { ApiService } from 'src/app/services/api.service';
 import { NgxKeyboardEventsService, NgxKey, NgxKeyboardEvent } from 'ngx-keyboard-events';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
@@ -20,9 +20,9 @@ export class WordComponent implements OnInit, OnDestroy {
   word: string = '';
   private keyboardSub: Subscription;
 
-  constructor(
+  constructor (
     @Inject(DOCUMENT) private document: Document,
-    private apiService: ApiService, 
+    private apiService: ApiService,
     private keyboard: NgxKeyboardEventsService,
     private route: ActivatedRoute,
     private router: Router,
@@ -42,7 +42,7 @@ export class WordComponent implements OnInit, OnDestroy {
     // if the search from the box component is invoked with the enter key
     setTimeout(() => {
       this.keyboardSub = this.keyboard.onKeyUp$.subscribe(event => {
-        if(event.code == NgxKey.Return) {
+        if (event.code == NgxKey.Return) {
           this.router.navigateByUrl('/');
         }
       });
