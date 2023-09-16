@@ -31,7 +31,6 @@ export class ApiService {
       map(([settings, apiResult]) => ({ settings, apiResult })),
       map(characterCtx => {
         const decomposition = characterCtx.apiResult as IDecomposition;
-        console.log("decom", decomposition);
 
         // if in experiment mode, present only a single definition for each character
         if (characterCtx.settings.isExperimentMode) {
