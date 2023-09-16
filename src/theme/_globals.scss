@@ -1,26 +1,24 @@
 $mobile-breakpoint: 600px;
 
 $primary-palette-def: (
-    50: #e5f0f3,
-    100: #bddbe4,
-    200: #98c4d3,
-    300: #78adc2,
-    400: #619db7,
-    500: #4d8eae,
-    600: #4282a3,
-    700: #367192,
-    800: #2d6181,
-    900: #204562,
-    contrast: (
-        50: rgba(black, 0.87),
-        100: rgba(black, 0.87),
-        200: rgba(black, 0.87),
-        300: white,
-        400: white,
-        500: white,
-        600: white,
-        700: white,
-        800: white,
-        900: white
-    )
+  50: #e5f0f3,
+  100: #bddbe4,
+  200: #98c4d3,
+  300: #78adc2,
+  400: #619db7,
+  500: #4d8eae,
+  600: #4282a3,
+  700: #367192,
+  800: #2d6181,
+  900: #204562,
+  contrast: (50: rgba(black, 0.9),
+    100: rgba(black, 0.8),
+    200: rgba(black, 0.65),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white)
 );

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { combineLatest, map, Observable, of } from 'rxjs';
+import { combineLatest, map, Observable, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IDecomposition } from 'src/app/models/decomposition';
 import { ICharacterDecomposition } from '../models/character-decomposition';
@@ -32,20 +32,22 @@ export class ApiService {
       map(characterCtx => {
         const decomposition = characterCtx.apiResult as IDecomposition;
 
-        // if in experiment mode, present only a single definition for each character
-        if (characterCtx.settings.isExperimentMode) {
-          for (const character of decomposition.characters) {
-            if (character.definitions.length > 1) {
-              character.definitions = [character.definitions[0]];
-            }
-          }
+        if (!characterCtx.settings.isExperimentMode) {
+          return decomposition;
         }
 
-        return decomposition;
+        // if in experiment mode, present only a single definition for each character
+        return {
+          word: decomposition.word,
+          characters: decomposition.characters.map(c => {
+            return {
+              ...c,
+              definitions: [c.definitions[0]]
+            }
+          })
+        };
       })
     );
-
-    return this.http.get<IDecomposition>(`${environment.apiRoot}/decomposition/${query}`)
   }
 
   getRecommendedSearchTerms(): Observable<string[]> {

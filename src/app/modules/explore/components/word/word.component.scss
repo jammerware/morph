@@ -1,6 +1,10 @@
 @use 'sass:map';
 @import 'src/theme/globals';
 
+h2 {
+  margin: 1rem 0 1rem 0.5rem;
+}
+
 .heroku-note a {
   font-weight: bold;
 }

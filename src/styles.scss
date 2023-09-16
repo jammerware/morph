@@ -16,6 +16,11 @@ p {
   src: url('assets/fonts/NotoSansSC-Regular.otf'), url('assets/fonts/NotoSansSC-Black.otf'), url('assets/fonts//NotoSansSC-Bold.otf'), url('assets/fonts/NotoSansSC-Light.otf'), url('assets/fonts/NotoSansSC-Medium.otf'), url('assets/fonts/NotoSansSC-Thin.otf');
 }
 
+.app-logo-font {
+  font-family: 'Passion One', Roboto, sans-serif;
+  text-transform: lowercase;
+}
+
 .chinese {
   font-family: 'Noto Sans SC', sans-serif !important;
 }

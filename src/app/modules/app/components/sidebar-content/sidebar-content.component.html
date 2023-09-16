@@ -1,6 +1,17 @@
 <div class="sidebar-content-component">
-  <mat-slide-toggle [checked]="(settings$ | async)?.isExperimentMode || false"
-    (change)="handleExperimentModeChange($event)">
-    Experiment Mode
-  </mat-slide-toggle>
+  <div class="settings-container content-container">
+    <div class="app-name-container">
+      <h2 class="app-logo-font">Morph</h2>
+      <p class="version-label">v{{appVersion}}</p>
+    </div>
+
+    <mat-slide-toggle [checked]="(settings$ | async)?.isExperimentMode || false"
+      (change)="handleExperimentModeChange($event)">
+      <strong>Experiment</strong> Mode
+    </mat-slide-toggle>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="about-container content-container">
+    <a [routerLink]="['/about']">Learn more about Morph</a>
+  </div>
 </div>

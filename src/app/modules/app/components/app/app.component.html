@@ -1,5 +1,5 @@
 <mat-sidenav-container class="app-sidenav">
-  <mat-sidenav #sidenav mode="push">
+  <mat-sidenav #sidenav mode="push" opened>
     <app-sidebar-content></app-sidebar-content>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -13,7 +13,6 @@
         <div class="flex-spacer height-spacer"></div>
         <div class="app-title-wrap">
           <a [routerLink]="['/']" class="app-title app-logo-font">Morph</a>
-          <a [routerLink]="['/about']" class="alpha-note">[ <strong>alpha</strong> {{appVersion}} ]</a>
         </div>
         <div class="content-wrap mat-app-background">
           <main>
