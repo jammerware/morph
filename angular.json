@@ -31,7 +31,11 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "src/.well-known/acme-challenge/*",
+                "output": "./"
+              }
             ],
             "styles": [
               "src/theme/theme.scss",
