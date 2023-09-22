@@ -16,7 +16,7 @@ export class LocalStorageService {
   get<T>(key: LocalStorageKey) {
     const value = this._window.localStorage.getItem(key);
 
-    if (value === null) {
+    if (!value) {
       return null;
     }
 

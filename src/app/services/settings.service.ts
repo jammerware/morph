@@ -21,7 +21,7 @@ export class SettingsService {
 
   constructor (private localStorage: LocalStorageService) {
     this._settings$ = new BehaviorSubject<Settings>(
-      this.localStorage.get<Settings>(LocalStorageKey.Settings || SettingsService.DEFAULT_SETTINGS)
+      this.localStorage.get<Settings>(LocalStorageKey.Settings) || SettingsService.DEFAULT_SETTINGS
     );
 
     this.current$ = this._settings$.asObservable();
