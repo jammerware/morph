@@ -10,7 +10,6 @@ import { SearchBoxComponent } from '../search-box/search-box.component';
     selector: 'app-explore-index',
     templateUrl: './explore-index.component.html',
     styleUrls: ['./explore-index.component.less'],
-    standalone: true,
     imports: [SearchBoxComponent, AsyncPipe],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

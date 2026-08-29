@@ -12,7 +12,6 @@ import { FormsModule } from '@angular/forms';
     selector: 'app-search-box',
     templateUrl: './search-box.component.html',
     styleUrls: ['./search-box.component.less'],
-    standalone: true,
     imports: [FormsModule, MatFormField, MatLabel, MatInput, AutofocusDirective, MatButton, MatIcon, AsyncPipe],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

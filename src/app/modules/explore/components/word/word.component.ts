@@ -19,7 +19,6 @@ import { MatProgressBar } from '@angular/material/progress-bar';
     selector: 'app-word',
     templateUrl: './word.component.html',
     styleUrls: ['./word.component.scss'],
-    standalone: true,
     imports: [MatProgressBar, MatIconButton, RouterLink, MatIcon, MatDivider, CharacterCardComponent, MatTooltip, CdkCopyToClipboard, AsyncPipe, LowerCasePipe],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

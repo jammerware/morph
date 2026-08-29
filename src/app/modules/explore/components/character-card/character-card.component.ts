@@ -8,7 +8,6 @@ import { RouterLink } from '@angular/router';
     selector: 'app-character-card',
     templateUrl: './character-card.component.html',
     styleUrls: ['./character-card.component.less'],
-    standalone: true,
     imports: [RouterLink],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

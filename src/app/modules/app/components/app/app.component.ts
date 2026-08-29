@@ -10,7 +10,6 @@ import { MatSidenavContainer, MatSidenav, MatSidenavContent } from '@angular/mat
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.less'],
-    standalone: true,
     imports: [
         MatSidenavContainer,
         MatSidenav,
@@ -21,7 +20,7 @@ import { MatSidenavContainer, MatSidenav, MatSidenavContent } from '@angular/mat
         RouterLink,
         RouterOutlet,
     ],
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
   constructor (

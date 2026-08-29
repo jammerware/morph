@@ -11,7 +11,6 @@ import { AsyncPipe } from '@angular/common';
     selector: 'app-character',
     templateUrl: './character.component.html',
     styleUrls: ['./character.component.scss'],
-    standalone: true,
     imports: [CharacterCommonWordsComponent, AsyncPipe],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

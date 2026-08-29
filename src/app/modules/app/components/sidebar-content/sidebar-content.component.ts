@@ -10,7 +10,6 @@ import { MatDivider } from '@angular/material/divider';
     selector: 'app-sidebar-content',
     templateUrl: './sidebar-content.component.html',
     styleUrls: ['./sidebar-content.component.scss'],
-    standalone: true,
     imports: [MatSlideToggle, MatDivider, RouterLink, AsyncPipe],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
