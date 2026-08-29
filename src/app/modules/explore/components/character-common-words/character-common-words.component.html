@@ -1,7 +1,11 @@
-<div *ngIf="words$ | async as words">
-  <mat-chip-set aria-label="Common words" role="list">
-    <mat-chip *ngFor="let word of words.translations" [routerLink]="'/word/' + word.translation">
-      {{word.translation}} ({{word.l1 | lowercase}})
-    </mat-chip>
-  </mat-chip-set>
-</div>
+@if (words$ | async; as words) {
+  <div>
+    <mat-chip-set aria-label="Common words" role="list">
+      @for (word of words.translations; track word) {
+        <mat-chip [routerLink]="'/word/' + word.translation">
+          {{word.translation}} ({{word.l1 | lowercase}})
+        </mat-chip>
+      }
+    </mat-chip-set>
+  </div>
+}

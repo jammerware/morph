@@ -8,8 +8,8 @@ describe('ExploreIndexComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExploreIndexComponent ]
-    })
+    imports: [ExploreIndexComponent]
+})
     .compileComponents();
   });
 

@@ -1,12 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { MatSlideToggleChange, MatSlideToggle } from '@angular/material/slide-toggle';
 import { SettingsService } from 'src/app/services/settings.service';
 import { VersionService } from 'src/app/services/version.service';
+import { AsyncPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { MatDivider } from '@angular/material/divider';
 
 @Component({
-  selector: 'app-sidebar-content',
-  templateUrl: './sidebar-content.component.html',
-  styleUrls: ['./sidebar-content.component.scss']
+    selector: 'app-sidebar-content',
+    templateUrl: './sidebar-content.component.html',
+    styleUrls: ['./sidebar-content.component.scss'],
+    standalone: true,
+    imports: [MatSlideToggle, MatDivider, RouterLink, AsyncPipe],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidebarContentComponent implements OnInit {
   constructor (

@@ -8,8 +8,8 @@ describe('CharacterCommonWordsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CharacterCommonWordsComponent ]
-    })
+    imports: [CharacterCommonWordsComponent]
+})
     .compileComponents();
   });
 

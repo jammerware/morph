@@ -1,13 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { ApiService } from 'src/app/services/api.service';
+import { AsyncPipe } from '@angular/common';
+import { SearchBoxComponent } from '../search-box/search-box.component';
 
 @Component({
-  selector: 'app-explore-index',
-  templateUrl: './explore-index.component.html',
-  styleUrls: ['./explore-index.component.less']
+    selector: 'app-explore-index',
+    templateUrl: './explore-index.component.html',
+    styleUrls: ['./explore-index.component.less'],
+    standalone: true,
+    imports: [SearchBoxComponent, AsyncPipe],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExploreIndexComponent implements OnInit {
   recommendedSearchTerms: Observable<string[]>;

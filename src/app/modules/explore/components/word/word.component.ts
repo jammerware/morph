@@ -1,23 +1,31 @@
-import { Component, Inject, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Observable, Subscription, switchMap, tap } from 'rxjs';
 import { IDecomposition } from 'src/app/models/decomposition';
 
 import { ApiService } from 'src/app/services/api.service';
-import { NgxKeyboardEventsService, NgxKey, NgxKeyboardEvent } from 'ngx-keyboard-events';
+import { NgxKeyboardEventsService, NgxKey } from 'ngx-keyboard-events';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, AsyncPipe, LowerCasePipe } from '@angular/common';
+import { CdkCopyToClipboard } from '@angular/cdk/clipboard';
+import { MatTooltip } from '@angular/material/tooltip';
+import { CharacterCardComponent } from '../character-card/character-card.component';
+import { MatDivider } from '@angular/material/divider';
+import { MatIcon } from '@angular/material/icon';
+import { MatIconButton } from '@angular/material/button';
+import { MatProgressBar } from '@angular/material/progress-bar';
 
 @Component({
-  selector: 'app-word',
-  templateUrl: './word.component.html',
-  styleUrls: ['./word.component.scss']
+    selector: 'app-word',
+    templateUrl: './word.component.html',
+    styleUrls: ['./word.component.scss'],
+    standalone: true,
+    imports: [MatProgressBar, MatIconButton, RouterLink, MatIcon, MatDivider, CharacterCardComponent, MatTooltip, CdkCopyToClipboard, AsyncPipe, LowerCasePipe],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WordComponent implements OnInit, OnDestroy {
+  word = signal('');
   decomposition$: Observable<IDecomposition>;
-  decompSub: Subscription;
-  pinyin: string = '';
-  word: string = '';
   private keyboardSub: Subscription;
 
   constructor (
@@ -26,18 +34,14 @@ export class WordComponent implements OnInit, OnDestroy {
     private keyboard: NgxKeyboardEventsService,
     private route: ActivatedRoute,
     private router: Router,
-    private snackbar: MatSnackBar) { }
+    private snackbar: MatSnackBar) {
+    this.decomposition$ = this.route.params.pipe(
+      tap(params => this.word.set(params['word'])),
+      switchMap(params => this.apiService.getDecomposition(params['word']))
+    );
+  }
 
-  async ngOnInit(): Promise<void> {
-    this.route.params.subscribe(async params => {
-      this.word = params['word'];
-      this.decomposition$ = this.apiService.getDecomposition(this.word);
-    });
-
-    this.decompSub = this.decomposition$.subscribe(decomp => {
-      this.pinyin = decomp.word.pinyin || decomp.characters.map(c => c.pinyin).join(' ');
-    });
-
+  ngOnInit(): void {
     // this is gross, but without it, the screen immediately navigates to search
     // if the search from the box component is invoked with the enter key
     setTimeout(() => {
@@ -53,10 +57,10 @@ export class WordComponent implements OnInit, OnDestroy {
     if (this.keyboardSub) {
       this.keyboardSub.unsubscribe();
     }
+  }
 
-    if (this.decompSub) {
-      this.decompSub.unsubscribe();
-    }
+  getPinyin(decomposition: IDecomposition): string {
+    return decomposition.word.pinyin || decomposition.characters.map(c => c.pinyin).join(' ');
   }
 
   showCopySnackbar(copiedText: string) {

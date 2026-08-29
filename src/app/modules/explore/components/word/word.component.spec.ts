@@ -8,8 +8,8 @@ describe('WordComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WordComponent ]
-    })
+    imports: [WordComponent]
+})
     .compileComponents();
   });
 
