@@ -15,7 +15,7 @@
   }
 
   h2 {
-    color: mat.get-color-from-palette($primary-palette-def, 800);
+    color: mat.m2-get-color-from-palette($primary-palette-def, 800);
     font-size: 3rem;
     margin: 0;
     padding: 0;
@@ -30,7 +30,7 @@
   }
 
   .version-label {
-    color: mat.get-color-from-palette($primary-palette-def, 600);
+    color: mat.m2-get-color-from-palette($primary-palette-def, 600);
     flex-grow: 1;
     margin: 0;
     padding: 0;
