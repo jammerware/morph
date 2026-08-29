@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
-import { CookieService } from 'ngx-cookie-service';
-
 import { AppMaterialModule } from 'src/app/modules/app-material/app-material.module';
 import { AppRoutingModule } from 'src/app/modules/app-routing/app-routing.module';
 import { AppCoreModule } from 'src/app/modules/app-core/app-core.module';
@@ -17,7 +15,6 @@ import { SidebarContentComponent } from './components/sidebar-content/sidebar-co
 
 @NgModule({
   providers: [
-    CookieService,
     { provide: ErrorHandler, useClass: ErrorService }
   ],
   declarations: [
