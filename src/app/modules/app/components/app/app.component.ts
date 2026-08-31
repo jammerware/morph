@@ -9,7 +9,7 @@ import { MatSidenavContainer, MatSidenav, MatSidenavContent } from '@angular/mat
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.less'],
+    styleUrls: ['./app.component.scss'],
     imports: [
         MatSidenavContainer,
         MatSidenav,

@@ -9,7 +9,7 @@ import { AsyncPipe, LowerCasePipe } from '@angular/common';
 @Component({
     selector: 'app-character-common-words',
     templateUrl: './character-common-words.component.html',
-    styleUrls: ['./character-common-words.component.less'],
+    styleUrls: ['./character-common-words.component.scss'],
     imports: [MatChipSet, MatChip, RouterLink, AsyncPipe, LowerCasePipe],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

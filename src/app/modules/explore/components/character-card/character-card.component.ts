@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
 @Component({
     selector: 'app-character-card',
     templateUrl: './character-card.component.html',
-    styleUrls: ['./character-card.component.less'],
+    styleUrls: ['./character-card.component.scss'],
     imports: [RouterLink],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
