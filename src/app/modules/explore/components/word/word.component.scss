@@ -1,5 +1,4 @@
-@use 'sass:map';
-@import 'src/theme/globals';
+@use 'src/theme/globals';
 
 h2 {
   margin: 1rem 0 1rem 0.5rem;
@@ -27,14 +26,13 @@ h2 {
   align-items: center;
 
   .pinyin {
-    // i need to figure out how to access mat functions without accidentally bloating/duplicating.
-    // this threw an over-budget error, so i have to manually get the shade from the map instead
-    // color: mat.get-color-from-palette($primary, 200);
-    color: map.get($primary-palette-def, 200);
+    // M3's system-level CSS variables (emitted once globally by mat.theme()) are what the
+    // comment below used to wish for - no more manually reading shades out of the palette map.
+    color: var(--mat-sys-on-surface-variant);
     font-weight: normal;
   }
 
-  @media only screen and (min-width: $mobile-breakpoint) {
+  @media only screen and (min-width: globals.$mobile-breakpoint) {
     .page-title {
       display: flex;
       flex-wrap: wrap;
@@ -45,7 +43,7 @@ h2 {
     }
   }
 
-  @media only screen and (max-width: $mobile-breakpoint) {
+  @media only screen and (max-width: globals.$mobile-breakpoint) {
     margin: 1.5rem 0 1rem 0;
 
     .page-title {
