@@ -10,14 +10,13 @@
           <div class="pinyin">({{getPinyin(decomposition)}})</div>
         </h2>
       </div>
-      <mat-divider></mat-divider>
+      <mat-divider />
       <div class="character-decompositions">
         @for (character of decomposition.characters; track character) {
-          <app-character-card
-          [decomposition]="character"></app-character-card>
+          <app-character-card [decomposition]="character" />
         }
       </div>
-      <mat-divider class="button-divider"></mat-divider>
+      <mat-divider class="button-divider" />
       <div class="button-wrap">
         <button mat-icon-button matTooltip="Look up on Google Translate" matTooltipPosition="above" color="primary"
           aria-label="Translate on Google Translate" (click)="toGoogleTranslate(decomposition.word.l1)">
@@ -36,7 +35,7 @@
     </div>
   } @else {
     <div class="loading">
-      <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+      <mat-progress-bar mode="indeterminate" color="accent" />
       <p>Looking up <strong>{{word()}}</strong>...</p>
       <p class="heroku-note">
         Don't worry if this takes awhile. Morph is hosted on inexpensive servers which may go to sleep if unused for a

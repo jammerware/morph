@@ -1,22 +1,22 @@
 <div class="character-card-component">
   <div class="content-wrap">
-    <a [routerLink]="getCharacterLink(decomposition.character)">
+    <a [routerLink]="getCharacterLink(decomposition().character)">
       <p class="character-big chinese">
-        {{decomposition.character}}
+        {{decomposition().character}}
       </p>
-      <p class="character-pinyin">{{decomposition.pinyin}}</p>
+      <p class="character-pinyin">{{decomposition().pinyin}}</p>
     </a>
     <div class="definitions">
       <ul>
-        @for (definition of decomposition.definitions; track definition) {
+        @for (definition of decomposition().definitions; track definition) {
           <li>{{definition}}</li>
         }
       </ul>
     </div>
 
     <ul>
-      <li><strong>{{decomposition.freqRank}}{{numberSuffix}}</strong> most common character</li>
-      <li><strong>{{decomposition.strokeCount}}</strong> strokes</li>
+      <li><strong>{{decomposition().freqRank}}{{numberSuffix()}}</strong> most common character</li>
+      <li><strong>{{decomposition().strokeCount}}</strong> strokes</li>
     </ul>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, input, output } from '@angular/core';
 import { interval, map, Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
@@ -16,10 +16,12 @@ import { FormsModule } from '@angular/forms';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchBoxComponent implements OnInit {
-  @Input() defaultHint = '';
+  readonly defaultHint = input('');
   @Input() query = '';
-  @Input() hints: string[] | null = [];
-  @Output() search = new EventEmitter<{ query: string }>();
+  readonly hints = input<string[] | null>([]);
+  readonly search = output<{
+    query: string;
+}>();
 
   // pretty suggestions
   placeholder$: Observable<string>;
@@ -28,11 +30,12 @@ export class SearchBoxComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.placeholder$ = interval(5000).pipe(map(_ => {
-      if (this.hints && this.hints.length) {
-        return this.hints[Math.floor(Math.random() * this.hints.length)];
+      const hints = this.hints();
+      if (hints && hints.length) {
+        return hints[Math.floor(Math.random() * hints.length)];
       }
 
-      return this.defaultHint;
+      return this.defaultHint();
     }));
   }
 

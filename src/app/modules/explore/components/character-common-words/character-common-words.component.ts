@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnChanges, inject, input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ITranslationResult } from 'src/app/models/translation-result';
 import { ApiService } from 'src/app/services/api.service';
@@ -17,11 +17,15 @@ export class CharacterCommonWordsComponent implements OnChanges {
   private apiService = inject(ApiService);
 
   words$: Observable<ITranslationResult>;
-  @Input() words: { word: string, frequency: number }[];
+  readonly words = input.required<{
+    word: string;
+    frequency: number;
+}[]>();
 
   ngOnChanges(): void {
-    if (this.words && this.words.length) {
-      this.words$ = this.apiService.translate(this.words.map(w => w.word))
+    const words = this.words();
+    if (words.length) {
+      this.words$ = this.apiService.translate(words.map(w => w.word))
     }
   }
 }
