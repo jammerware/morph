@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { combineLatest, map, Observable, of, tap } from 'rxjs';
+import { combineLatest, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IDecomposition } from 'src/app/models/decomposition';
 import { ICharacterDecomposition } from '../models/character-decomposition';
