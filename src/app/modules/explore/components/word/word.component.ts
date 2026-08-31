@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, signal, DOCUMENT } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Observable, Subscription, switchMap, tap } from 'rxjs';
 import { IDecomposition } from 'src/app/models/decomposition';
@@ -6,7 +6,7 @@ import { IDecomposition } from 'src/app/models/decomposition';
 import { ApiService } from 'src/app/services/api.service';
 import { NgxKeyboardEventsService, NgxKey } from 'ngx-keyboard-events';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DOCUMENT, AsyncPipe, LowerCasePipe } from '@angular/common';
+import { AsyncPipe, LowerCasePipe } from '@angular/common';
 import { CdkCopyToClipboard } from '@angular/cdk/clipboard';
 import { MatTooltip } from '@angular/material/tooltip';
 import { CharacterCardComponent } from '../character-card/character-card.component';
