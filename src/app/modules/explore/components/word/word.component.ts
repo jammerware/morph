@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, signal, DOCUMENT, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { Observable, Subscription, switchMap, tap } from 'rxjs';
+import { Observable, Subscription, fromEvent, switchMap, tap } from 'rxjs';
 import { IDecomposition } from 'src/app/models/decomposition';
 
 import { ApiService } from 'src/app/services/api.service';
-import { NgxKeyboardEventsService, NgxKey } from 'ngx-keyboard-events';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AsyncPipe, LowerCasePipe } from '@angular/common';
 import { CdkCopyToClipboard } from '@angular/cdk/clipboard';
@@ -25,7 +24,6 @@ import { MatProgressBar } from '@angular/material/progress-bar';
 export class WordComponent implements OnInit, OnDestroy {
   private document = inject<Document>(DOCUMENT);
   private apiService = inject(ApiService);
-  private keyboard = inject(NgxKeyboardEventsService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private snackbar = inject(MatSnackBar);
@@ -45,8 +43,8 @@ export class WordComponent implements OnInit, OnDestroy {
     // this is gross, but without it, the screen immediately navigates to search
     // if the search from the box component is invoked with the enter key
     setTimeout(() => {
-      this.keyboardSub = this.keyboard.onKeyUp$.subscribe(event => {
-        if (event.code == NgxKey.Return) {
+      this.keyboardSub = fromEvent<KeyboardEvent>(this.document, 'keyup').subscribe(event => {
+        if (event.code === 'Enter') {
           this.router.navigateByUrl('/');
         }
       });
