@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ErrorHandler, NgZone, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ErrorHandler, OnInit, inject } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { ErrorService } from 'src/app/services/error.service';
 import { MatIcon } from '@angular/material/icon';
@@ -25,14 +25,10 @@ import { MatSidenavContainer, MatSidenav, MatSidenavContent } from '@angular/mat
 export class AppComponent implements OnInit {
   private errorService = inject(ErrorHandler) as ErrorService;
   private router = inject(Router);
-  private zone = inject(NgZone);
 
   ngOnInit() {
     this.errorService.onError.subscribe(error => {
-      // TODO: find out why zone is needed here
-      this.zone.run(() => {
-        this.router.navigateByUrl('error', { state: { lastError: error } });
-      });
+      this.router.navigateByUrl('error', { state: { lastError: error } });
     });
   }
 }
