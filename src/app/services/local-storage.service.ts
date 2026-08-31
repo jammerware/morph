@@ -1,5 +1,4 @@
-
-import { Injectable, Inject, DOCUMENT } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 export enum LocalStorageKey {
   Settings = "settings"
@@ -7,11 +6,7 @@ export enum LocalStorageKey {
 
 @Injectable({ providedIn: 'root' })
 export class LocalStorageService {
-  private _window: Window;
-
-  constructor (@Inject(DOCUMENT) document: Document) {
-    this._window = window;
-  }
+  private _window = window;
 
   get<T>(key: LocalStorageKey) {
     const value = this._window.localStorage.getItem(key);

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { MatSlideToggleChange, MatSlideToggle } from '@angular/material/slide-toggle';
 import { SettingsService } from 'src/app/services/settings.service';
 import { VersionService } from 'src/app/services/version.service';
@@ -14,9 +14,8 @@ import { MatDivider } from '@angular/material/divider';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidebarContentComponent implements OnInit {
-  constructor (
-    private settingsService: SettingsService,
-    private versionService: VersionService) { }
+  private settingsService = inject(SettingsService);
+  private versionService = inject(VersionService);
 
   ngOnInit(): void {
     this.appVersion = this.versionService.get();

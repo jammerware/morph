@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, signal, DOCUMENT } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, signal, DOCUMENT, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Observable, Subscription, switchMap, tap } from 'rxjs';
 import { IDecomposition } from 'src/app/models/decomposition';
@@ -23,17 +23,18 @@ import { MatProgressBar } from '@angular/material/progress-bar';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WordComponent implements OnInit, OnDestroy {
+  private document = inject<Document>(DOCUMENT);
+  private apiService = inject(ApiService);
+  private keyboard = inject(NgxKeyboardEventsService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private snackbar = inject(MatSnackBar);
+
   word = signal('');
   decomposition$: Observable<IDecomposition>;
   private keyboardSub: Subscription;
 
-  constructor (
-    @Inject(DOCUMENT) private document: Document,
-    private apiService: ApiService,
-    private keyboard: NgxKeyboardEventsService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private snackbar: MatSnackBar) {
+  constructor () {
     this.decomposition$ = this.route.params.pipe(
       tap(params => this.word.set(params['word'])),
       switchMap(params => this.apiService.getDecomposition(params['word']))

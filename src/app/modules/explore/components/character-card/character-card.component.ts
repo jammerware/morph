@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
 import { ICharacterDecomposition } from 'src/app/models/character-decomposition';
 import { FreqRankService } from 'src/app/modules/explore/services/freq-rank.service';
 
@@ -12,10 +12,10 @@ import { RouterLink } from '@angular/router';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterCardComponent implements OnInit {
+  private freqRank = inject(FreqRankService);
+
   @Input() decomposition: ICharacterDecomposition;
   numberSuffix = "th";
-
-  constructor(private freqRank: FreqRankService) { }
 
   ngOnInit(): void {
     this.numberSuffix = this.freqRank.getFreqRankSuffix(this.decomposition.freqRank);

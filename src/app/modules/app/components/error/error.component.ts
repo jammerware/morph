@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ErrorHandler, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ErrorHandler, OnInit, inject } from '@angular/core';
 import { ErrorService } from 'src/app/services/error.service';
 
 import { RouterLink } from '@angular/router';
@@ -11,9 +11,9 @@ import { RouterLink } from '@angular/router';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ErrorComponent implements OnInit {
-  errorInfo: any = null;
+  private errorsService = inject(ErrorHandler) as ErrorService;
 
-  constructor(@Inject(ErrorHandler) private errorsService: ErrorService) { }
+  errorInfo: any = null;
 
   ngOnInit(): void {
     this.errorInfo = this.errorsService.lastError;

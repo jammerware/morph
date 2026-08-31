@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ErrorHandler, Inject, NgZone, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ErrorHandler, NgZone, OnInit, inject } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { ErrorService } from 'src/app/services/error.service';
 import { MatIcon } from '@angular/material/icon';
@@ -23,11 +23,9 @@ import { MatSidenavContainer, MatSidenav, MatSidenavContent } from '@angular/mat
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
-  constructor (
-    @Inject(ErrorHandler) private errorService: ErrorService,
-    private router: Router,
-
-    private zone: NgZone) { }
+  private errorService = inject(ErrorHandler) as ErrorService;
+  private router = inject(Router);
+  private zone = inject(NgZone);
 
   ngOnInit() {
     this.errorService.onError.subscribe(error => {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { LocalStorageKey, LocalStorageService } from './local-storage.service';
 
@@ -12,6 +12,8 @@ export interface SettingsUpdate {
 
 @Injectable({ providedIn: 'root' })
 export class SettingsService {
+  private localStorage = inject(LocalStorageService);
+
   private _settings$: BehaviorSubject<Settings>;
   public current$: Observable<Settings>;
 
@@ -19,7 +21,7 @@ export class SettingsService {
     isExperimentMode: false
   };
 
-  constructor (private localStorage: LocalStorageService) {
+  constructor () {
     this._settings$ = new BehaviorSubject<Settings>(
       this.localStorage.get<Settings>(LocalStorageKey.Settings) || SettingsService.DEFAULT_SETTINGS
     );

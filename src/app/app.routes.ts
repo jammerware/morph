@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 import { ActivatedRouteSnapshot, Routes } from '@angular/router';
 import { ExploreIndexComponent } from 'src/app/modules/explore/components/explore-index/explore-index.component';
 
-@Injectable({ providedIn: 'root' })
+@Service()
 export class ResolvedWordTitle {
   resolve(route: ActivatedRouteSnapshot): string {
     const word = route.paramMap.get('word');
@@ -10,7 +10,7 @@ export class ResolvedWordTitle {
   }
 }
 
-@Injectable({ providedIn: 'root' })
+@Service()
 export class ResolvedCharacterTitle {
   resolve(route: ActivatedRouteSnapshot): string {
     const character = route.paramMap.get('character');

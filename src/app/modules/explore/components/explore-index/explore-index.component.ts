@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -14,11 +14,10 @@ import { SearchBoxComponent } from '../search-box/search-box.component';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExploreIndexComponent implements OnInit {
-  recommendedSearchTerms: Observable<string[]>;
+  private api = inject(ApiService);
+  private router = inject(Router);
 
-  constructor(
-    private api: ApiService,
-    private router: Router) { }
+  recommendedSearchTerms: Observable<string[]>;
 
   ngOnInit(): void {
     this.recommendedSearchTerms = this.api.getRecommendedSearchTerms();

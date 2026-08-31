@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { combineLatest, map, Observable, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IDecomposition } from 'src/app/models/decomposition';
@@ -9,10 +9,8 @@ import { SettingsService } from './settings.service';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-
-  constructor (
-    private http: HttpClient,
-    private settings: SettingsService) { }
+  private http = inject(HttpClient);
+  private settings = inject(SettingsService);
 
   getCharacterDetails(character: string): Observable<ICharacterDecomposition> {
     return this.http.get(`${environment.apiRoot}/character/${character}`)

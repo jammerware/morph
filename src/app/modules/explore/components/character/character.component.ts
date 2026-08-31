@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
 import { ICharacterDecomposition } from 'src/app/models/character-decomposition';
@@ -15,13 +15,14 @@ import { AsyncPipe } from '@angular/common';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterComponent {
+  private apiService = inject(ApiService);
+  private route = inject(ActivatedRoute);
+  private freqRank = inject(FreqRankService);
+
   freqRankSuffix: string = "th";
   character$: Observable<ICharacterDecomposition>;
 
-  constructor(
-    private apiService: ApiService,
-    private route: ActivatedRoute,
-    private freqRank: FreqRankService) {
+  constructor() {
     this.character$ = this.route.params.pipe(
       switchMap(params => this.apiService.getCharacterDetails(params['character']))
     );

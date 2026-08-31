@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 
 import packageJson from "../../../package.json";
 
-@Injectable({ providedIn: 'root' })
+@Service()
 export class VersionService {
   get() {
     return packageJson.version;
