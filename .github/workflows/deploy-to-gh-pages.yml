@@ -28,10 +28,13 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build -- --base-href /morph/
+        run: npm run build
 
       - name: Add SPA fallback
         run: cp dist/morph/browser/index.html dist/morph/browser/404.html
+
+      - name: Add custom domain
+        run: echo "morphchinese.com" > dist/morph/browser/CNAME
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
