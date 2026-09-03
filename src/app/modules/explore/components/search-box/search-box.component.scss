@@ -20,6 +20,20 @@ form {
   }
 
   button {
+    flex-shrink: 0;
     height: 92px;
+    width: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+    mat-icon {
+      display: block;
+      margin: 0;
+      font-size: 40px;
+      width: 40px;
+      height: 40px;
+    }
   }
 }

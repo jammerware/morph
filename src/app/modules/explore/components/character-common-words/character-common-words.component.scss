@@ -1,0 +1,7 @@
+mat-chip {
+  cursor: pointer;
+
+  ::ng-deep .mdc-evolution-chip__action {
+    cursor: pointer;
+  }
+}
