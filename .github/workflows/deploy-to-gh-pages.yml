@@ -28,7 +28,10 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: npm run build -- --base-href /morph/
+
+      - name: Add SPA fallback
+        run: cp dist/morph/browser/index.html dist/morph/browser/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
